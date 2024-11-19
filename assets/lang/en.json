@@ -1,0 +1,26 @@
+{
+    "auth": {
+      "login": "Login",
+      "signup": "Sign Up",
+      "logout": "Logout",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "forgotPassword": "Forgot Password?",
+      "resetPassword": "Reset Password",
+      "sendCode": "Send Code",
+      "verificationCode": "Verification Code",
+      "welcomeBack": "Welcome Back!",
+      "pleaseLoginToContinue": "Please login to continue",
+      "enterEmail": "Enter your email",
+      "enterPassword": "Enter your password",
+      "enterVerificationCode": "Enter the verification code sent to your email",
+      "dontHaveAccount": "Don't have an account?",
+      "alreadyHaveAccount": "Already have an account?",
+      "createAccount": "Create Account",
+      "invalidEmail": "Invalid email format",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordMismatch": "Passwords do not match"
+    }
+  }
+  
