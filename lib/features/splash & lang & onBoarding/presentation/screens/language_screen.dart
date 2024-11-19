@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart'; // Import Bloc
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_images.dart';
+import 'package:icar/config/app_keys.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
+import 'package:icar/core/utils/spacing.dart';
+import 'package:icar/core/widgets/buttons/primary_button.dart';
+import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/cubit/language_cubit.dart'; // Import the LanguageCubit
 
-class LanguageScreen extends StatefulWidget {
+class LanguageScreen extends StatelessWidget {
   const LanguageScreen({super.key});
 
   @override
-  State<LanguageScreen> createState() => _LanguageScreenState();
-}
-
-class _LanguageScreenState extends State<LanguageScreen> {
-  @override
   Widget build(BuildContext context) {
-    String selectedLanguage = 'ar';
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(
             children: [
-              const SizedBox(height: 16),
+              verticalSpace(16),
               Align(
                 alignment: Alignment.topRight,
                 child: SvgPicture.asset(AppImages.splash,
@@ -31,110 +31,134 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     colorFilter: const ColorFilter.mode(
                         CColors.primaryColor, BlendMode.srcIn)),
               ),
-              const SizedBox(height: 30),
-
+              verticalSpace(30),
+              const Spacer(),
               // Heading Text
               Container(
+                height: 300,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: CColors.lightGray.withOpacity(0.1)),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Text(
-                      'قم باختيار لغتك المفضلة',
-                      textAlign: TextAlign.center,
-                      style: CTextStyles.font14DarkMedium
-                    ),
-                    const SizedBox(height: 10),
+                    Text('قم باختيار لغتك المفضلة',
+                        style: CTextStyles.font14DarkMedium),
                     Text(
                       'Choose Your Default Language',
-                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black.withOpacity(0.6),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    verticalSpace(30),
 
                     // Language Selection Radio Buttons
-                    Column(
-                      children: [
-                        RadioListTile<String>(
-                          value: 'ar',
-                          groupValue: selectedLanguage,
-                          onChanged: (String? value) {
-                            setState(() {
-                              selectedLanguage = value!;
-                            });
-                          },
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: BlocBuilder<LanguageCubit, LanguageState>(
+                        builder: (context, state) {
+                          return Column(
                             children: [
-                              const Spacer(),
-                              const Text('اللغة العربية'),
-                              const SizedBox(width: 8),
-                              SvgPicture.asset(AppImages.arFlag),
+                              // Arabic Language Radio Button with Border
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                      color: state.selectedLanguage == 'ar'
+                                          ? CColors.primaryColor
+                                          : Colors.transparent),
+                                ),
+                                child: RadioListTile<String>(
+                                 hoverColor: Colors.transparent,  // Disable hover color
+  overlayColor: MaterialStateProperty.all(Colors.transparent),  // Remove the splash effect
+  splashRadius: 0,
+  
+                                  
+                                  selectedTileColor: Colors.transparent,
+                                  value: 'ar',
+                                  groupValue: state.selectedLanguage,
+                                  // Remove hover effect
+                                
+                                
+                                  onChanged: (String? value) {
+                                    if (value != null) {
+                                      context
+                                          .read<LanguageCubit>()
+                                          .selectLanguage(value);
+                                    }
+                                  },
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Spacer(),
+                                      const Text('اللغة العربية'),
+                                      const SizedBox(width: 8),
+                                      SvgPicture.asset(AppImages.arFlag),
+                                    ],
+                                  ),
+                                  activeColor: CColors.primaryColor,
+                                   tileColor: Colors.white,  // Ensure no background color change
+  selected: state.selectedLanguage == 'ar',  
+                                ),
+                              ),
+                              // English Language Radio Button with Border
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                      color: state.selectedLanguage == 'en'
+                                          ? CColors.primaryColor
+                                          : Colors.transparent),
+                                ),
+                                child: RadioListTile<String>(
+                                  overlayColor: const WidgetStatePropertyAll(
+                                      CColors.black),
+                                  value: 'en',
+                                  groupValue: state.selectedLanguage,
+                                  onChanged: (String? value) {
+                                    if (value != null) {
+                                      context
+                                          .read<LanguageCubit>()
+                                          .selectLanguage(value);
+                                    }
+                                  },
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Spacer(),
+                                      const Text(
+                                          'اللغة الإنجليزية ( English )'),
+                                      const SizedBox(width: 8),
+                                      SvgPicture.asset(AppImages.enFlag),
+                                    ],
+                                  ),
+                                  activeColor: CColors.primaryColor,
+                                         tileColor: Colors.white,  // Ensure no background color change
+  selected: state.selectedLanguage == 'en',  
+                                ),
+                              ),
                             ],
-                          ),
-                          activeColor: CColors.primaryColor
-                        ),
-                        RadioListTile<String>(
-                          value: 'en',
-                          groupValue: selectedLanguage,
-                          onChanged: (String? value) {
-                            setState(() {
-                              selectedLanguage = value!;
-                            });
-                          },
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Spacer(),
-                              const Text('اللغة الإنجليزية ( English )'),
-                              const SizedBox(width: 8),
-                              SvgPicture.asset(AppImages.enFlag),
-                            ],
-                          ),
-                          activeColor: Colors.blue,
-                        ),
-                      ],
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
               ),
 
               // Continue Button
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  // Action for continue button
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: CColors.primaryColor,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text(
-                  'متابعة', // Arabic text for "Continue"
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
+              verticalSpace(100),
+              AppGesterDedector(onTap: () {}, text: AppKeys.continueText),
 
+              const Spacer(),
               // Footer Note Text
               Text(
                 'يمكنك تغيير اللغة لاحقًا من الإعدادات\nYou Can Change The Language Later in the Settings',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black.withOpacity(0.6),
-                ),
+                style: CTextStyles.font14GrayRegular,
               ),
             ],
           ),

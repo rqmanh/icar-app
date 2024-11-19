@@ -132,6 +132,13 @@ class AppKeys {
 
     static String areYouSure = _tr('areYouSure');
 
+
+      static String chooseYourLanguage = _tr('chooseYourLanguage');
+  static String chooseYourLanguageSubtitle = _tr('chooseYourLanguageSubtitle');
+  static String arabicLanguage = _tr('arabicLanguage');
+  static String englishLanguage = _tr('englishLanguage');
+  static String langFooterNote = _tr('langfooterNote');
+
   // Helper method to fetch translation for keys
   static String _tr(String key) => key.tr();
 }

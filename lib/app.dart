@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         return fontSize * scaleWidth;
       },
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
           title: 'iCar',
           locale: context.locale,
           supportedLocales: context.supportedLocales,

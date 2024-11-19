@@ -22,6 +22,13 @@ class TAppTheme {
       cursorColor: CColors.primaryColor,
       selectionHandleColor: CColors.primaryColor.withOpacity(0.2),
     ),
+      radioTheme: RadioThemeData(
+      splashRadius: 0,  // Disable splash effect
+      overlayColor: MaterialStateProperty.all(Colors.transparent),  // Disable overlay color
+      fillColor: MaterialStateProperty.all(Colors.transparent),  // Disable fill color
+      mouseCursor: MaterialStateProperty.all(MouseCursor.defer),  // Optional: disable mouse interaction
+    ),
+  
   );
 
   static final ThemeData darkTheme = ThemeData(

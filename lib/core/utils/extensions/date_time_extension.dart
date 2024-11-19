@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:icar/core/localization/local_keys.dart';
+import 'package:icar/config/app_keys.dart';
 
-import 'package:intl/intl.dart';
 
 extension DateTimeExtension on DateTime {
   String timeAgo({bool numericDates = false}) {
@@ -13,19 +12,19 @@ extension DateTimeExtension on DateTime {
     } else if (difference.inDays >= 2) {
       return '${difference.inDays} days ago';
     } else if (difference.inDays >= 1) {
-      return (numericDates) ? '1 day ago' : Lkeys.yesterday.tr();
+      return (numericDates) ? '1 day ago' : AppKeys.yesterday;
     } else if (difference.inHours >= 2) {
       return '${difference.inHours} hr';
     } else if (difference.inHours >= 1) {
-      return (numericDates) ? '1 hour ago' : Lkeys.anHourAgo.tr();
+      return (numericDates) ? '1 hour ago' : AppKeys.anHourAgo;
     } else if (difference.inMinutes >= 2) {
       return '${difference.inMinutes} min';
     } else if (difference.inMinutes >= 1) {
-      return (numericDates) ? '1 minute ago' : Lkeys.aMinuteAgo.tr();
+      return (numericDates) ? '1 minute ago' : AppKeys.aMinuteAgo;
     } else if (difference.inSeconds >= 3) {
-      return Lkeys.justNow.tr();
+      return AppKeys.justNow;
     } else {
-      return Lkeys.justNow.tr();
+      return AppKeys.justNow;
     }
   }
 
@@ -34,21 +33,21 @@ extension DateTimeExtension on DateTime {
   final difference = date2.difference(toUtc()); // Convert `this` to UTC for consistency
 
   if (difference.inDays >= 7) {
-    return '1 ${'week'.tr()}';
+    return '1 ${'week'}';
   } else if (difference.inDays >= 2) {
-    return '${difference.inDays} ${'days'.tr()}';
+    return '${difference.inDays} ${'days'}';
   } else if (difference.inDays >= 1) {
-    return '1 ${'day'.tr()}';
+    return '1 ${'day'}';
   } else if (difference.inHours >= 2) {
-    return '${difference.inHours} ${'hours'.tr()}';
+    return '${difference.inHours} ${'hours'}';
   } else if (difference.inHours >= 1) {
-    return '1 ${'hour'.tr()}';
+    return '1 ${'hour'}';
   } else if (difference.inMinutes >= 2) {
-    return '${difference.inMinutes} ${'minutes'.tr()}';
+    return '${difference.inMinutes} ${'minutes'}';
   } else if (difference.inMinutes >= 1) {
-    return '1 ${'minute'.tr()}';
+    return '1 ${'minute'}';
   } else if (difference.inSeconds >= 10) {
-    return '${difference.inSeconds} ${'seconds'.tr()}';
+    return '${difference.inSeconds} ${'seconds'}';
   } else {
     return 'Just now';
   }

@@ -349,8 +349,8 @@
 // Lkeys.locationServicesDisabled : 'خدمات الموقع معطلة',
 //   Lkeys.locationDisclosure: 'مطلوب الوصول إلى الموقع',
 
-// Lkeys.locationDisclosureTitle: 'لماذا يحتاج Bzzz إلى موقعك؟',
-// Lkeys.locationDisclosureDesc: 'يقوم Bzzz بجمع بيانات الموقع لتمكين مشاركة موقع النشاط والأماكن القريبة، حتى عندما يكون التطبيق مغلقًا أو في الخلفية. هذه البيانات ضرورية لإظهار أصدقائك أين تحدث أنشطتك في الوقت الحقيقي.',
+// Lkeys.locationDisclosureTitle: 'لماذا يحتاج icar إلى موقعك؟',
+// Lkeys.locationDisclosureDesc: 'يقوم icar بجمع بيانات الموقع لتمكين مشاركة موقع النشاط والأماكن القريبة، حتى عندما يكون التطبيق مغلقًا أو في الخلفية. هذه البيانات ضرورية لإظهار أصدقائك أين تحدث أنشطتك في الوقت الحقيقي.',
 // Lkeys.locationDisclosureButton: 'فهمت',
 // Lkeys.locationDisclosureButton2: 'إلغاء',
 
@@ -640,14 +640,14 @@
 // Lkeys.locationDisclosure: 'Location Access Required',
 // Lkeys.locationPermissionRequired : 'Location Permission Required',
 // Lkeys.locationServicesDisabled : 'Location services are disabled. Please enable them to proceed',
-// Lkeys.locationDisclosureTitle:    'Why does Bzzz need your location?',
-// Lkeys.locationDisclosureDesc:      'Bzzz collects location data to enable activity location sharing and nearby places, even when the app is closed or in the background. This data is necessary for showing your friends where your activities are happening in real-time.',
+// Lkeys.locationDisclosureTitle:    'Why does icar need your location?',
+// Lkeys.locationDisclosureDesc:      'icar collects location data to enable activity location sharing and nearby places, even when the app is closed or in the background. This data is necessary for showing your friends where your activities are happening in real-time.',
 // Lkeys.locationDisclosureButton:    'Got it',
 // Lkeys.locationDisclosureButton2:    'Cancel',
 
 // Lkeys.locationDisclosurePermDeniedButton: 'Enable Location Access',
 // Lkeys.locationDisclosurePermDeniedTitle: 'Location Access Denied',
-// Lkeys.locationDisclosurePermDeniedDesc: 'You have denied location access. Please enable location access in your settings to continue using Bzzz.',
+// Lkeys.locationDisclosurePermDeniedDesc: 'You have denied location access. Please enable location access in your settings to continue using icar.',
 
 
 

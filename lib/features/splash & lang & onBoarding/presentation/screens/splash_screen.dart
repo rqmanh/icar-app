@@ -49,23 +49,19 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: CColors.primaryColor,
       body: SizedBox(
-        width: double.maxFinite,
         height: double.infinity,
-        child: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: Center(
-              child: AnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            opacity: 0.0,
-            child: SvgPicture.asset(
-              AppImages.splash,
-              semanticsLabel: 'icar logo',
-              height: 200,
-              width: 200,
-            ),
-          )),
-        ),
+        width: double.infinity,
+        child: Center(
+            child: AnimatedOpacity(
+          duration: const Duration(milliseconds: 700),
+          opacity: 1.0,
+          child: SvgPicture.asset(
+            AppImages.splash,
+            semanticsLabel: 'icar logo',
+            height: 200,
+            width: 200,
+          ),
+        )),
       ),
     );
   }

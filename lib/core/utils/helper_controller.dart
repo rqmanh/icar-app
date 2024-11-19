@@ -91,7 +91,7 @@ class Helper {
     int hour = int.parse(parts[0]);
     int minute = int.parse(parts[1]);
 
-    String period = hour >= 12 ? Lkeys.pm.tr() : Lkeys.am.tr();
+    String period = hour >= 12 ? "PM":"AM";
     hour = hour % 12;
     hour = hour == 0 ? 12 : hour; // Handle midnight (00:00) as 12 AM
 

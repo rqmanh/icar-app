@@ -7,6 +7,9 @@ class AppImages {
   static const String enFlag ='assets/images/en_flag.svg';
 
 
+  static const String loading = 'assets/icons/loading.json';
+
+
 }
 
 
