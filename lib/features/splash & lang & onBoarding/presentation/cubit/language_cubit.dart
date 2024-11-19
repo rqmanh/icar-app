@@ -1,6 +1,7 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icar/core/utils/shared_pref_helper.dart';
 
 // LanguageCubit states
 class LanguageState extends Equatable {
@@ -18,6 +19,7 @@ class LanguageCubit extends Cubit<LanguageState> {
 
   // Update the selected language
   void selectLanguage(String language) {
+
     emit(LanguageState(language));
   }
 }

@@ -58,7 +58,7 @@ class AppGesterDedector extends StatelessWidget {
     this.color,
     this.btnColor= CColors.primaryColor,
     this.isLoading = false,
-    this.height=50,
+    this.height=55,
     this.width,
      this.fontSize,
     this.textStyle,

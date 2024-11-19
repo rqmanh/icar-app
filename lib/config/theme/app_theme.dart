@@ -10,8 +10,10 @@ class TAppTheme {
     fontFamily: AppConstants.fontFamily,
     primaryColor: CColors.primaryColor,
     splashColor: CColors.primaryColor,
-    brightness: Brightness.light,
+    brightness: Brightness.dark,
     textTheme: TTextTheme.lightTextTheme,
+    highlightColor: CColors.transparent,
+    hoverColor: CColors.transparent ,
     appBarTheme: TAppBarTheme.lightAppBarTheme,
     chipTheme: TChipTheme.chipLightTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
@@ -23,6 +25,7 @@ class TAppTheme {
       selectionHandleColor: CColors.primaryColor.withOpacity(0.2),
     ),
       radioTheme: RadioThemeData(
+        
       splashRadius: 0,  // Disable splash effect
       overlayColor: MaterialStateProperty.all(Colors.transparent),  // Disable overlay color
       fillColor: MaterialStateProperty.all(Colors.transparent),  // Disable fill color
@@ -35,7 +38,8 @@ class TAppTheme {
     indicatorColor: CColors.primaryColor,
 
       fontFamily: AppConstants.fontFamily,
-      
+          highlightColor: CColors.transparent,
+    hoverColor: CColors.transparent ,
       primaryColor: CColors.primaryColor,
       brightness: Brightness.dark,
       textTheme: TTextTheme.darkTextTheme,

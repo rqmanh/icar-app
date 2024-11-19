@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CColors {
   static const Color primaryColor = Color(0xFFCD1E4F); // Updated Teal
-  static Color secondaryColor = const Color(0xFF00ADB5).withOpacity(0.9);
+  static Color secondaryColor = const Color(0xFFCD1E4F).withOpacity(0.9);
   static const Color disabledColorDark = Color(0xFFa2a7ad); // Grey
   static const Color disabledColorLight = Color(0xFFBABFC4); // Light Grey
   static const Color hintColorDark = Color(0xFFbebebe); // Dark Hint Grey
@@ -25,7 +25,7 @@ class CColors {
   static const Color errorColorLight = Color(0xFFE84D4F);
   static const Color backgroundColorDark = Color(0xFF1C1E2B);
   static const Color cardBackgroundColorDark = Color(0xFF1C1E2B);
-  static const Color scafBackgroundColorDark = Color(0xFF15151F);
+  static const Color scafBackgroundColorDark = Color(0xFFFAFAFA);
   static const Color backgroundColorLight = Color(0xFFF5F6F8);
   static const Color dialogSurfaceTintColorDark = Colors.white10;
   static const Color dialogSurfaceTintColorLight = Colors.white;

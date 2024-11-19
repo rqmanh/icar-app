@@ -30,9 +30,15 @@ void setBool(String key, bool value) {
   }
 
 
-
   String getString(String key) {
     return _prefs?.getString(key) ?? '';
+  }
+
+  void setLagChoosed(){
+    _prefs?.setBool('LagChoosed',true);
+  }
+  bool getLagChoosed(){
+    return _prefs?.getBool('LagChoosed') ?? false;
   }
 
   void setUserToken(String token) {

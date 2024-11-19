@@ -10,6 +10,13 @@ class AppImages {
   static const String loading = 'assets/icons/loading.json';
 
 
+  static const String onboardingOne ='assets/images/onboarding_one.svg';
+  static const String onboardingTwo ='assets/images/onboarding_two.svg';
+  static const String onboardingThree ='assets/images/onboarding_three.svg';
+
+
+
+
 }
 
 
