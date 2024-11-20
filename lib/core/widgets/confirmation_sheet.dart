@@ -32,7 +32,7 @@ class ConfirmationSheet extends StatelessWidget {
                         SmoothRadius(cornerRadius: 30, cornerSmoothing: 1.0),
                     topRight:
                         SmoothRadius(cornerRadius: 30, cornerSmoothing: 1.0))),
-            color: CColors.cardBackgroundColorDark
+            color: CColors.cardBackgroundColor
           ),
           padding: const EdgeInsets.all(25),
           child: SafeArea(

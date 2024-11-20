@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'button_loading_widget.dart';
 
 class TSocialButton extends StatelessWidget {
@@ -36,7 +37,7 @@ class TSocialButton extends StatelessWidget {
         ),
         icon: isLoading
             ? const SizedBox()
-            : Image(image: AssetImage(image), width: 24, height: 24),
+            : SvgPicture.asset(image, width: 24, height: 24),
         label: isLoading
             ? ButtonLoadingWidget(circularColor: loadingColor)
             : Text(text,

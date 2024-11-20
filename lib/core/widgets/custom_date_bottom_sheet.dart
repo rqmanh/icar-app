@@ -23,7 +23,7 @@ class CustomDateBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: CColors.cardBackgroundColorDark,
+        color: CColors.cardBackgroundColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -239,7 +239,7 @@ class CustomDateTextField extends StatelessWidget {
             hintText: hintText,
             hintStyle: const TextStyle(color: Colors.grey),
             filled: true,
-      fillColor:  CColors.cardBackgroundColorDark,
+      fillColor:  CColors.cardBackgroundColor,
             // border: OutlineInputBorder(
             //   borderRadius: BorderRadius.circular(10),
             //   borderSide: BorderSide.none,
@@ -274,7 +274,7 @@ class CustomDateTextField extends StatelessWidget {
 
   void _showDateBottomSheet(BuildContext context) {
     showModalBottomSheet(
-      backgroundColor: CColors.cardBackgroundColorDark,
+      backgroundColor: CColors.cardBackgroundColor,
   
       context: context,
       builder: (BuildContext context) {

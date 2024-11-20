@@ -146,21 +146,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingPage(
       title: "مرحباً بك في تطبيق iCar",
       body:
-          "تطبيقك الذي يدير ويصون سياراتك بأفضل طريقة. مع iCar، ستتلقى تنبيهات وتذكيرات مخصصة وتقارير شاملة لكل ما تحتاج لمعرفته عن صيانة سيارتك.",
+         "تطبيقك الذكي لإدارة وصيانة سيارتك بأفضل طريقة. مع iCar، ستتلقى تنبيهات وتذكيرات مخصصة، وتقارير شاملة لكل ما تحتاج لمعرفته عن صيانة سيارتك",
       image: "assets/images/onboarding_one.svg",
       backgroundColor: const Color(0xFFFFE0CC), // Orange
     ),
     OnboardingPage(
       title: "لا تفوت موعداً لصيانة سيارتك",
       body:
-          "يتيح لك I Car ضبط التنبيهات لمواعيد الخدمات المهمة، مثل تغيير الزيت، واستبدال الإطارات. ابق على اطلاع دائم على حالة سيارتك.",
+         "يتيح لك iCar ضبط التنبيهات لتذكيرك بمواعيد الخدمات المهمة، مثل تغيير الزيت، فحص المكابح، واستبدال الإطارات، ليبقى أداء سيارتك في أفضل حالاته دائمًا.",
       image: "assets/images/onboarding_two.svg",
       backgroundColor: const Color(0xFFCCE7FF), // Blue
     ),
     OnboardingPage(
       title: "احصل على تقارير تفصيلية",
       body:
-          "يمكنك استعراض تاريخ الصيانة والتحديثات التي تمت على سيارتك في أي وقت، بتفاصيل التقارير المفصلة التي نوفرها. تابع التغييرات بسهولة.",
+"يمكنك استعراض تاريخ الصيانة والتحديثات التي تمت على سيارتك في أي وقت، بفضل التقارير المفصلة التي نوفرها. تابع التغييرات بسهولة وابقَ على اطلاع دائم بكل ما يخص سيارتك",
       image: "assets/images/onboarding_three.svg",
       backgroundColor: const Color(0xFFFFCCCF), // Pink
     ),
@@ -231,7 +231,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 if (_currentIndex < _pages.length - 1)
                   TextButton(
                     onPressed: () {
-                              context.go(AppRoutes.loginScreen);
+                              context.go(AppRoutes.signinScreen);
                     },
                     child: const Text(
                       'تخطي',
@@ -270,7 +270,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         curve: Curves.easeInOut,
                       );
                     } else {
-                     context.go(AppRoutes.loginScreen);
+                     context.go(AppRoutes.signinScreen);
                     }
                   },
                   child: Text(

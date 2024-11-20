@@ -13,14 +13,14 @@ class CTextStyles {
     color: Colors.black,
   );
 
-  static TextStyle font32TealBold = TextStyle(
+  static TextStyle font32PrimaryBold = TextStyle(
     fontFamily: AppConstants.fontFamily,
     fontSize: 32.sp,
     fontWeight: FontWeight.w700,
     color: CColors.primaryColor,
   );
 
-  static TextStyle font13TealSemiBold = TextStyle(
+  static TextStyle font13PrimarySemiBold = TextStyle(
     fontFamily: AppConstants.fontFamily,
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.semiBold,
@@ -41,7 +41,7 @@ class CTextStyles {
     color: CColors.black,
   );
 
-  static TextStyle font24TealBold = TextStyle(
+  static TextStyle font24PrimaryBold = TextStyle(
     fontFamily: AppConstants.fontFamily,
     fontSize: 24.sp,
     fontWeight: FontWeightHelper.bold,
@@ -81,7 +81,7 @@ class CTextStyles {
     color: CColors.gray,
   );
 
-  static TextStyle font12TealMedium = TextStyle(
+  static TextStyle font12PrimaryMedium = TextStyle(
     fontFamily: AppConstants.fontFamily,
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.medium,
@@ -94,7 +94,7 @@ class CTextStyles {
       fontWeight: FontWeightHelper.regular,
       color: CColors.black);
 
-  static TextStyle font12TealRegular = TextStyle(
+  static TextStyle font12PrimaryRegular = TextStyle(
       fontFamily: AppConstants.fontFamily,
       fontSize: 12.sp,
       fontWeight: FontWeightHelper.regular,
@@ -126,6 +126,12 @@ class CTextStyles {
     fontWeight: FontWeightHelper.medium,
     color: CColors.white,
   );
+  static TextStyle font14BlackMedium = TextStyle(
+    fontFamily: AppConstants.fontFamily,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: CColors.black,
+  );
 
   static TextStyle font14DarkMedium = TextStyle(
     fontFamily: AppConstants.fontFamily,
@@ -140,7 +146,7 @@ class CTextStyles {
     color: Colors.white,
   );
 
-  static TextStyle font14TealSemiBold = TextStyle(
+  static TextStyle font14PrimarySemiBold = TextStyle(
       fontFamily: AppConstants.fontFamily,
       fontSize: 14.sp,
       fontWeight: FontWeightHelper.semiBold,

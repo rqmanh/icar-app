@@ -81,7 +81,7 @@ Widget buildIconButton( IconData icon,
     height: size+20,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
-      color: CColors.scafBackgroundColorDark,
+      color: CColors.scafBackgroundColor,
       border: Border.all(color: color),
     ),
     child: IconButton(

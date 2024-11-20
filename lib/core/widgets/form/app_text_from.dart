@@ -29,7 +29,7 @@ class AppTextField extends StatelessWidget {
     return Container(
       height: isEditor ? 130 : 45,
       decoration: BoxDecoration(
-        color: color ?? CColors.backgroundColorDark,
+        color: color ?? CColors.backgroundColor,
         borderRadius: BorderRadius.circular(8),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
@@ -42,6 +42,7 @@ class AppTextField extends StatelessWidget {
         minLines: isEditor ? null : 1,
         maxLines: isEditor ? null : 1,
         decoration: InputDecoration(
+          labelStyle: CTextStyles.font14DarkMedium ,
           focusedBorder: InputBorder.none,
             hintText: placeHolder.tr(),
             hintStyle:
@@ -54,7 +55,7 @@ class AppTextField extends StatelessWidget {
         maxLength: isEditor ? limit : null,
         style: CTextStyles.font14DarkMedium.copyWith(color: CColors.white),
         controller: controller,
-        textInputAction: TextInputAction.newline,
+        textInputAction: TextInputAction.next,
       ),
     );
   }

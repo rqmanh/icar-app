@@ -435,7 +435,7 @@ class CircleEditableImageWidget extends StatelessWidget {
     if (imagePath.isEmpty) {
       // If no image is provided, show a placeholder with the icon
       imageWidget = CircleAvatar(
-        backgroundColor: CColors.backgroundColorDark,
+        backgroundColor: CColors.backgroundColor,
         radius:  AppUtils.getScreenWidth(context) * 0.15,
         child: imageIcon.endsWith('.svg')
             ? SvgPicture.asset(
@@ -457,7 +457,7 @@ class CircleEditableImageWidget extends StatelessWidget {
     } else if (imagePath.startsWith('https')) {
       // If the imagePath is a network URL
       imageWidget = CircleAvatar(
-        backgroundColor: CColors.backgroundColorDark,
+        backgroundColor: CColors.backgroundColor,
         radius:  AppUtils.getScreenWidth(context) * 0.15,
         child: ClipOval(
           child: CachedNetworkImage(
@@ -481,14 +481,14 @@ class CircleEditableImageWidget extends StatelessWidget {
     } else if (File(imagePath).existsSync()) {
       // If the imagePath is a local file path (selected from the device)
       imageWidget = CircleAvatar(
-        backgroundColor: CColors.backgroundColorDark,
+        backgroundColor: CColors.backgroundColor,
         radius:  AppUtils.getScreenWidth(context) * 0.15,
         backgroundImage: FileImage(File(imagePath)), // Use FileImage for local files
       );
     } else {
       // If the imagePath is an invalid path, fallback to a placeholder
       imageWidget = CircleAvatar(
-        backgroundColor: CColors.backgroundColorDark,
+        backgroundColor: CColors.backgroundColor,
         radius:  AppUtils.getScreenWidth(context) * 0.15,
         child: const Icon(Icons.image_not_supported), // Fallback if the file does not exist
       );

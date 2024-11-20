@@ -1,7 +1,6 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:icar/core/utils/shared_pref_helper.dart';
 
 // LanguageCubit states
 class LanguageState extends Equatable {

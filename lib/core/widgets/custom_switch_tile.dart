@@ -21,7 +21,7 @@ class CustomSwitchTile extends StatelessWidget {
       height: 60.0.h,
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       decoration: BoxDecoration(
-        color:  CColors.cardBackgroundColorDark,
+        color:  CColors.cardBackgroundColor,
         borderRadius: BorderRadius.circular(15),
         border: Border.all(color: CColors.lightBlack, width: 2.0),
       ),

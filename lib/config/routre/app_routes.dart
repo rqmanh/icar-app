@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icar/features/auth/presentation/cubit/login_cubit.dart';
+import 'package:icar/features/auth/presentation/cubit/sign_in_cubit.dart';
 import 'package:icar/features/auth/presentation/screens/login_screen.dart';
+import 'package:icar/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:icar/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/language_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/onboarding_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/splash_screen.dart';
@@ -10,7 +12,7 @@ class AppRoutes {
   static const String splashScreen = '/splash';
   static const String langScreen = '/lang';
   static const String onBoardingScreen = '/onboarding';
-  static const String loginScreen = '/login';
+  static const String signinScreen = '/sign-in';
   static const String signupScreen = '/sign-up';
   static const String otpScreen = '/otp-screen';
   static const String signupDetailsScreen = '/signup-details';
@@ -35,11 +37,18 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const OnboardingScreen(),
     ),
     GoRoute(
-      path: AppRoutes.loginScreen,
+      path: AppRoutes.signinScreen,
       builder: (context, state) => BlocProvider(
-        create: (context) => LoginCubit(),
-        child: const LoginScreen(),
+        create: (context) => SignInCubit(),
+        child: const SignInScreen(),
       ),
-    )
+    ),
+    GoRoute(
+      path: AppRoutes.signupScreen,
+      builder: (context, state) => BlocProvider(
+        create: (context) => SignInCubit(),
+        child: const SignupScreen(),
+      ),
+    ),
   ],
 );

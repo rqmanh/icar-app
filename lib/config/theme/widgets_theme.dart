@@ -115,6 +115,7 @@ class TTextFormFieldTheme {
   TTextFormFieldTheme._();
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
+  
     prefixIconColor: CColors.secondaryColor,
     floatingLabelStyle: TextStyle(color: CColors.secondaryColor),
     border: OutlineInputBorder(
@@ -124,6 +125,7 @@ class TTextFormFieldTheme {
       borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(width: 2, color: CColors.secondaryColor),
     ),
+    
   );
 
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
@@ -184,7 +186,7 @@ class TElevatedButtonTheme {
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: CColors.backgroundColorDark,
+      foregroundColor: CColors.backgroundColor,
       backgroundColor: CColors.primaryColor,
       side: const BorderSide(color: CColors.primaryColor),
       padding: const EdgeInsets.symmetric(vertical: 20),

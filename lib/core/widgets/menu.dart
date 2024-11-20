@@ -44,7 +44,7 @@ class Menu extends StatelessWidget {
         position: position,
         shadowColor: CColors.iconColor.withOpacity(0.3),
         // padding: const EdgeInsets.all(20),
-        color: CColors.cardBackgroundColorDark,
+        color: CColors.cardBackgroundColor,
         // iconColor: color ?? CColors.iconColor,
         shape: const SmoothRectangleBorder(
             borderRadius: SmoothBorderRadius.all(

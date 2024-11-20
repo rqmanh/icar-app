@@ -44,12 +44,12 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: CTextStyles.font14WhiteMedium),
+        Text(label, style: CTextStyles.font14DarkMedium),
         const SizedBox(height: 10),
         TextFormField(
           keyboardType: isNumber ? TextInputType.number : TextInputType.text,
           onTapOutside: (event) => FocusScope.of(context).unfocus(),
-          enabled:readOnly ,
+          enabled: readOnly,
           onChanged: onChanged,
           maxLines: maxLines,
           // textInputAction: maxLines == 1
@@ -64,21 +64,20 @@ class CustomTextField extends StatelessWidget {
           // initialValue: initialValue ?? controller!.text, // Use initialValue if provided, otherwise use controller.text
           validator: validator,
           readOnly: readOnly ?? false,
-          
+          cursorColor: CColors.primaryColor,
           controller: controller,
-          style: const TextStyle(color: Colors.white),
+          style: CTextStyles.font14DarkMedium,
           decoration: InputDecoration(
             suffixText: suffixText,
             hintText: hintText,
             hintStyle: const TextStyle(color: Colors.grey),
-            filled: true,
-            fillColor:  CColors.cardBackgroundColorDark,
+            filled: false,
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey, width: 2.0),
+              borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: CColors.lightBlack, width: 2.0),
+              borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             focusedBorder: const OutlineInputBorder(
@@ -86,11 +85,11 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red, width: 2.0),
+              borderSide: BorderSide(color: Colors.red, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red, width: 2.0),
+              borderSide: BorderSide(color: Colors.red, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             suffixIcon: icon,

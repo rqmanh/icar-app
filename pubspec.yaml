@@ -12,6 +12,7 @@ dependencies:
   another_flushbar: ^1.12.30
   cached_network_image: ^3.4.1
   connectivity_plus: ^6.1.0
+  csc_picker: ^0.2.7
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dio: ^5.7.0
@@ -40,6 +41,7 @@ dependencies:
   shared_preferences: ^2.3.3
   shimmer: ^3.0.0
   url_launcher: ^6.3.1
+  webview_flutter: ^4.10.0
 
 dependency_overrides:
   build_runner: ^2.4.7
@@ -56,6 +58,7 @@ flutter:
   assets:
     - assets/lang/
     - assets/images/
+    - assets/icons/
   fonts:
     - family: Neo
       fonts:

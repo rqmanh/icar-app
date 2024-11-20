@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:icar/core/widgets/sheets/web_sheet_view.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppUtils {
-  // static void openURLSheet({required String title, required String url}) {
-  //   Get.bottomSheet(
-  //     WebSheetScreen(title: title, url: url),
-  //     isScrollControlled: true,
-  //     ignoreSafeArea: false,
-  //   ).then((value) {
-  //     changStatusBar(StatusBarStyle.black);
-  //   });
-  // }
-  // static void hideKeyboard(BuildContext context) {
-  //   FocusScope.of(context).requestFocus(FocusNode());
-  // }
+static void openURLSheet({
+  required BuildContext context,
+  required String title,
+  required String url,
+}) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (context) => WebSheetScreen(title: title, url: url),
+  ).then((value) {
+    changStatusBar(StatusBarStyle.black);
+  });
+}
 
   static void setStatusBarLight() {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

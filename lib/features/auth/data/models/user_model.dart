@@ -4,12 +4,11 @@ class UserModel extends UserEntity {
   UserModel({
     required super.id,
     required super.name,
-    required super.email,
-    super.phoneNumber,
-    super.avatar,
-    super.gender,
-    super.country,
-    super.city,
+    required super.phoneNumber,
+    required super.avatar,
+    required super.gender,
+    required super.country,
+    required super.city,
   });
 
   // Factory constructor to create a UserModel from a JSON map
@@ -17,7 +16,6 @@ class UserModel extends UserEntity {
     return UserModel(
       id: json['id'],
       name: json['name'],
-      email: json['email'],
       phoneNumber: json['phoneNumber'],
       avatar: json['avatar'],
       gender: json['gender'],
@@ -31,12 +29,66 @@ class UserModel extends UserEntity {
     return {
       'id': id,
       'name': name,
-      'email': email,
       'phoneNumber': phoneNumber,
       'avatar': avatar,
       'gender': gender,
       'country': country,
       'city': city,
+    };
+  }
+}
+
+class CitiesModel extends CityEntity {
+  CitiesModel({required super.id, required super.name});
+
+  factory CitiesModel.fromJson(Map<String, dynamic> json) {
+    return CitiesModel(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+    };
+  }
+
+  //toMap
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+    };
+  }
+}
+
+class CountryModel extends CountryEntity {
+  CountryModel({
+    required super.id,
+    required super.name,
+  });
+
+  factory CountryModel.fromJson(Map<String, dynamic> json) {
+    return CountryModel(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+    };
+  }
+
+  //toMap
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
     };
   }
 }

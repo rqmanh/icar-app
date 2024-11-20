@@ -1,3 +1,4 @@
+import 'package:icar/config/theme/app_text_styles.dart';
 import 'package:icar/core/widgets/custom_asset_image_widget.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -29,19 +30,23 @@ class FormHeaderWidget extends StatelessWidget {
 
     return Center(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomAssetImageWidget(image,
-              color: CColors.primaryColor,
-              height: size.height * imageHeight + 50),
+          Align(
+            alignment: Alignment.topRight,
+            child: CustomAssetImageWidget(image,
+                color: CColors.primaryColor,
+                height: size.height * imageHeight),
+          ),
           //  SvgPicture.asset(image, color: imageColor, height: size.height * imageHeight+200 ),
           SizedBox(height: heightBetween ?? 20),
-          Text(title, style: Theme.of(context).textTheme.displayLarge),
+          Text(title, style: CTextStyles.font24BlackBold.copyWith(fontSize: 20)),
           SizedBox(height: heightBetween ?? 10),
           Text(subTitle,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyLarge),
+              // textAlign: TextAlign.center,
+              overflow: TextOverflow.visible,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: CColors.secondaryTextColor,),)
         ],
       ),
     );

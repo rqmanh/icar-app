@@ -6,6 +6,7 @@ class AppKeys {
   static String login = _tr('login');
   static String signup = _tr('signup');
   static String phoneNumber = _tr('phoneNumber');
+  static String phoneNumberHint = _tr('phoneNumberHint');
   static String password = _tr('password');
   static String confirmPassword = _tr('confirmPassword');
   static String fullName = _tr('fullName');
@@ -14,6 +15,10 @@ class AppKeys {
   static String forgetPassword = _tr('forgetPassword');
   static String signInWithGoogle = _tr('signInWithGoogle');
   static String continueText = _tr('continue');
+  static String gender = _tr('gender');
+  static String city = _tr('city');
+  static String country = _tr('country');
+  static String select = _tr('select');
 
   // Validation & Error-related keys
   static String phoneRequired = _tr('phoneRequired');

@@ -94,6 +94,7 @@ const String tOR = 'OR';
 const String tConnectWith = 'Connect With';
 const String tFacebook = 'Facebook';
 const String tGoogle = 'Google';
+const String tApple = 'Apple';
 
 // -- Sign Up Screen Text
 const String tSignUpTitle = 'Get On Board!';

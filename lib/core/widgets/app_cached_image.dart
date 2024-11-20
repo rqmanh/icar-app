@@ -85,7 +85,7 @@ class AppCachedProfileImage extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.only(top: 2),
         child: Text((fullName ?? 'No')[0].toUpperCase(),
-            style: CTextStyles.font32TealBold),
+            style: CTextStyles.font32PrimaryBold),
       ),
     );
   }

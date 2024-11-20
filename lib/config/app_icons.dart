@@ -4,6 +4,10 @@ class AppIcons{
   static const String signupIcon2 = 'assets/icons/signup_icon2.svg';
 
 
+  static const String appleLogo='assets/icons/apple-logo.svg';
+  static const String googleLogo='assets/icons/google-logo.svg';
+
+
 
   // dashboard icons
   static const String dashboardIcon1= 'assets/icons/dashboard_icon1.svg';
