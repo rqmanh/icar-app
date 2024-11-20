@@ -8,6 +8,7 @@ import 'package:icar/config/theme/app_text_styles.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_sizes.dart';
 import 'package:icar/core/utils/app_utils.dart';
+import 'package:icar/core/utils/shared_pref_helper.dart';
 import 'package:icar/core/utils/spacing.dart';
 import 'package:icar/core/widgets/buttons/primary_button.dart';
 import 'package:icar/features/auth/presentation/cubit/sign_in_cubit.dart';
@@ -31,18 +32,18 @@ class LoginFormWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
               ),
-              height: 150,
+              height: 130,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: CColors.white),
               child: Column(
                 children: [
                   verticalSpace(15),
-                  const Align(
-                      alignment: Alignment.topRight,
-                      child: Text(
-                        'رقم الهاتف',
-                      )),
+                  Align(
+                      alignment: PrefHelper.instance.getLangCode() == 'en'
+                          ? Alignment.topRight
+                          : Alignment.topLeft,
+                      child: Text(AppKeys.phoneNumber)),
                   verticalSpace(10),
                   Directionality(
                     textDirection: TextDirection.ltr,
@@ -79,7 +80,7 @@ class LoginFormWidget extends StatelessWidget {
                         }
                         return null;
                       },
-                
+
                       keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.done,
                       controller: cubit.phoneNumberController,
@@ -94,11 +95,9 @@ class LoginFormWidget extends StatelessWidget {
                         //   borderRadius: BorderRadius.all(Radius.circular(15)),
                         // ),
                         enabledBorder: const OutlineInputBorder(
-                          
                           borderSide:
                               BorderSide(color: CColors.lightGray, width: 1.0),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
-                          
                         ),
                         // focusedBorder: const OutlineInputBorder(
                         //   borderSide:
@@ -126,11 +125,17 @@ class LoginFormWidget extends StatelessWidget {
                     state is SignInLoading ? state.isLoading : false;
 
                 return AppGesterDedector(
-                  height: 50.h,
-                  isLoading: isLoading,
-                  text: AppKeys.login,
-                  onTap: isLoading ? () {} : cubit.validateAndSendOtp,
-                );
+                    height: 50.h,
+                    isLoading: isLoading,
+                    text: AppKeys.login,
+                    onTap: isLoading
+                        ? () {}
+                        : () {
+                             print(PrefHelper.instance.getLangCode());
+                            // cubit.validateAndSendOtp;
+                          }
+                    //
+                    );
               },
             ),
           ],
@@ -150,11 +155,11 @@ class TermConditionText extends StatelessWidget {
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          text: 'بتسجيل الدخول، فإنك توافق على ',
+          text: AppKeys.termsOfService,
           style: CTextStyles.font12GrayRegular,
           children: [
             TextSpan(
-              text: 'شروط الخدمة',
+              text: AppKeys.termsOfServiceLink,
               style: CTextStyles.font12PrimaryMedium,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
@@ -165,9 +170,11 @@ class TermConditionText extends StatelessWidget {
                   );
                 },
             ),
-            const TextSpan(text: ' و '),
             TextSpan(
-              text: 'سياسة الخصوصية',
+              text: AppKeys.and,
+            ),
+            TextSpan(
+              text: AppKeys.privacyPolicy,
               style: CTextStyles.font13PrimarySemiBold,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {

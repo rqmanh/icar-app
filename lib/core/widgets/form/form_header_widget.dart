@@ -1,4 +1,6 @@
+import 'package:icar/app.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
+import 'package:icar/core/utils/shared_pref_helper.dart';
 import 'package:icar/core/widgets/custom_asset_image_widget.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +36,7 @@ class FormHeaderWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Align(
-            alignment: Alignment.topRight,
+            alignment:PrefHelper.instance.getLangCode() == 'ar' ? Alignment.centerLeft : Alignment.centerRight,
             child: CustomAssetImageWidget(image,
                 color: CColors.primaryColor,
                 height: size.height * imageHeight),

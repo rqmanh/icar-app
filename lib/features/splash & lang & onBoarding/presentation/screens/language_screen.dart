@@ -153,6 +153,7 @@ class LanguageScreen extends StatelessWidget {
               verticalSpace(100),
               AppGesterDedector(
                   onTap: () {
+                    
                     PrefHelper.instance.setLangCode(
                         context.read<LanguageCubit>().state.selectedLanguage);
                     PrefHelper.instance.setLagChoosed();

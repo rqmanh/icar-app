@@ -11,7 +11,6 @@ void main() async {
     providers: [
       BlocProvider(create: (context) => LanguageCubit()),
     ],
-  
     child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('ar')],
         path: 'assets/lang', // Path to translation files

@@ -6,9 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_keys.dart';
+import 'package:icar/config/routre/app_routes.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
 import 'package:icar/core/utils/spacing.dart';
 import 'package:icar/core/utils/validator.dart';
+import 'package:icar/core/widgets/buttons/clickable_richtext_widget.dart';
 import 'package:icar/core/widgets/buttons/primary_button.dart';
 import 'package:icar/core/widgets/custom_dropdown_field.dart';
 import 'package:icar/core/widgets/custom_text_field.dart';
@@ -453,6 +455,14 @@ class CreateAccountForm extends StatelessWidget {
             },
             text: AppKeys.signup,
           ),
+           Align(
+            alignment: Alignment.center,
+             child: ClickableRichTextWidget(
+              text1: AppKeys.alreadyHaveAnAccount,
+              text2: AppKeys.login,
+              onPressed: ()=>context.push(AppRoutes.signinScreen),
+                       ),
+           ),
         ],
       ),
     );

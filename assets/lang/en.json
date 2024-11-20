@@ -2,6 +2,22 @@
 	"welcome": "Welcome to iCar App",
 	"login": "Login",
 	"signup": "Sign Up",
+
+
+	
+	"login_title": "Login to iCar",
+	"login_subtitle": "Welcome back! Log in to access your account and continue managing and maintaining your car.",
+	  "sign_up_with": "Or sign up with",
+
+	  "terms_of_service": "By logging in, you agree to the ",
+	  "terms_of_service_link": "Terms of Service",
+	  "and": " and ",
+	  "privacy_policy": "Privacy Policy",
+	  "create_account_title": "Create Your Account on iCar",
+	  "create_account_subtitle": "Start your journey with us to manage your car easily and effectively. Register your account now and enjoy alert services and detailed reports for your car maintenance."
+,	
+
+	  "apple": "Apple",
 	"phoneNumber": "Phone Number",
 	"phoneNumberHint":"Enter your phone number",
 	"password": "Password",
@@ -65,7 +81,7 @@
 	"welcomeBack": "Welcome back,",
 	"loginSubTitle": "Make it work, make it right, make it fast.",
 	"rememberMe": "Remember me?",
-	"dontHaveAnAccount": "Don't have an account",
+	"dontHaveAnAccount": "Don't have an account? ",
 	"enterYour": "Enter your",
 	"resetPassword": "Reset Password",
 	"or": "Or",
@@ -74,7 +90,7 @@
 	"google": "Google",
 	"signUpTitle": "Get Started!",
 	"signUpSubTitle": "Create your profile to start your journey.",
-	"alreadyHaveAnAccount": "Already have an account?",
+	"alreadyHaveAnAccount": "Already have an account? ",
 	"forgetPasswordTitle": "Choose an option!",
 	"forgetPasswordSubTitle": "Enter your email to reset your password.",
 	"resetViaEmail": "Reset via email verification",

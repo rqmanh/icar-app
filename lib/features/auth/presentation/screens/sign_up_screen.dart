@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_images.dart';
+import 'package:icar/config/app_keys.dart';
 import 'package:icar/core/widgets/custom_asset_image_widget.dart';
 import 'package:icar/core/widgets/form/form_header_widget.dart';
 import 'package:icar/features/auth/presentation/cubit/sign_up_cubit.dart';
@@ -19,30 +20,27 @@ class SignupScreen extends StatelessWidget {
       backgroundColor: CColors.scafBackgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded,
-              color: CColors.primaryColor),
-          onPressed: () => context.pop()
-        ),
+            icon: const Icon(Icons.arrow_back_ios_new_rounded,
+                color: CColors.primaryColor),
+            onPressed: () => context.pop()),
         backgroundColor: CColors.scafBackgroundColor,
         elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-      
-        
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
-                   const FormHeaderWidget(
-                          image: AppImages.logo,
-                          title: 'أنشئ حسابك على iCar',
-                          subTitle:"ابدأ رحلتك معنا لإدارة سيارتك بسهولة وفعالية. سجّل حسابك الآن وتمتع بخدمات التنبيهات والتقارير المفصلة لصيانة سيارتك",
-                          imageHeight: 0.1,
-                        ),
+                  FormHeaderWidget(
+                    image: AppImages.logo,
+                    title: AppKeys.createAccountTitle,
+                    subTitle: AppKeys.createAccountSubTitle,
+                    imageHeight: 0.1,
+                  ),
                   const SizedBox(height: 20),
                   BlocProvider(
                     create: (context) => SignupCubit(),

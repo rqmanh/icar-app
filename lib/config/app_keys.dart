@@ -19,6 +19,18 @@ class AppKeys {
   static String city = _tr('city');
   static String country = _tr('country');
   static String select = _tr('select');
+  static String loginTitle = _tr('login_title');
+static String loginSubTitle = _tr('login_subtitle');
+static String signUpWith = _tr('sign_up_with');
+static String termsOfService = _tr('terms_of_service');
+static String termsOfServiceLink = _tr('terms_of_service_link');
+static String and = _tr('and');
+static String privacyPolicy = _tr('privacy_policy');
+static String createAccountTitle = _tr('create_account_title');
+static String createAccountSubTitle = _tr('create_account_subtitle');
+static String apple = _tr('apple');
+
+
 
   // Validation & Error-related keys
   static String phoneRequired = _tr('phoneRequired');
@@ -111,7 +123,7 @@ class AppKeys {
   static String forgetMailSubTitle = _tr('forgetMailSubTitle');
 
   static String welcomeBack = _tr('welcomeBack');
-  static String loginSubTitle = _tr('loginSubTitle');
+
   static String rememberMe = _tr('rememberMe');
   static String dontHaveAnAccount = _tr('dontHaveAnAccount');
   static String enterYour = _tr('enterYour');

@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_images.dart';
+import 'package:icar/config/app_keys.dart';
 import 'package:icar/config/app_sizes.dart';
 import 'package:icar/config/routre/app_routes.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
 import 'package:icar/core/widgets/form/form_header_widget.dart';
-import 'package:icar/core/widgets/top_bar_widget.dart';
 import 'package:icar/features/auth/presentation/cubit/sign_in_cubit.dart';
 import 'package:icar/features/auth/presentation/widgets/signin_form_widget.dart';
 import 'package:icar/features/auth/presentation/widgets/social_footer.dart';
@@ -47,11 +47,10 @@ class SignInScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(height: 40.h),
-                        const FormHeaderWidget(
+                         FormHeaderWidget(
                           image: AppImages.logo,
-                          title: 'تسجيل الدخول إلى iCar',
-                          subTitle:' مرحبًا بعودتك! سجل دخولك للوصول إلى حسابك ومتابعة إدارة وصيانة سيارتك',
-                          imageHeight: 0.1,
+                          title:AppKeys.loginTitle,
+                          subTitle:AppKeys.loginSubTitle
                         ),
                         const LoginFormWidget(),
                         20.verticalSpace,
@@ -87,7 +86,7 @@ class SignInDivider extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
-            "أو التسجيل عن طريق", // "Or Sign in with"
+     AppKeys.signUpWith,
             style: CTextStyles.font14GrayRegular
           ),
         ),

@@ -24,10 +24,10 @@ class ClickableRichTextWidget extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                  text: '${text1.tr()} ? ',
+                  text: text1,
                   style: Theme.of(context).textTheme.bodyMedium),
               TextSpan(
-                text: text2.tr(),
+                text: text2,
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
