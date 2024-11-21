@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:icar/api/dio_exception.dart';
 import 'package:icar/api/result/api_error_strings.dart';
 import 'package:icar/api/result/failures.dart';
@@ -23,7 +25,8 @@ class AuthRepositoryImpl implements AuthRepository {
     required this.networkInfo,
     required this.networkInfoPlus,
   });
-
+ final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   @override
   Future<Either<Failure, Success>> sendOtp(String phoneNumber) async {
     bool isConnected = await networkInfoPlus.isConnected;
@@ -136,4 +139,72 @@ class AuthRepositoryImpl implements AuthRepository {
     }
     return Left(OfflineFailure(message: ApiErrorString.OFFLINE_ERROR));
   }
+  
+  @override
+  Future<Either<Failure, UserModel>> signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    throw UnimplementedError();
+  }
+
+
+
+
+
+//  @override
+//   Future<Either<Failure, UserModel>> signInWithGoogle() async {
+//     bool isConnected = await networkInfo.isConnected;
+//     if (!isConnected) {
+//       return Left(OfflineFailure(message: ApiErrorString.OFFLINE_ERROR));
+//     }
+
+//     try {
+//       // Step 1: Trigger Google Sign-In
+//       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+//       if (googleUser == null) {
+//         return const Left(ServerFailure(message: 'Google Sign-In canceled'));
+//       }
+
+//       // Step 2: Get the authentication details from Google
+//       final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+//       final credential = GoogleAuthProvider.credential(
+//         idToken: googleAuth.idToken,
+//         accessToken: googleAuth.accessToken,
+//       );
+
+//       // Step 3: Sign in to Firebase using the credentials
+//       final UserCredential userCredential = await _firebaseAuth.signInWithCredential(credential);
+//       final firebaseUser = userCredential.user;
+      
+//       if (firebaseUser == null) {
+//         return const Left(ServerFailure(message: 'Failed to sign in with Google'));
+//       }
+
+//       // Step 4: Send the idToken to the backend for validation or user creation
+//       final response = await remoteDataSource.signInWithGoogle(firebaseUser);
+
+//       if (response.status == true) {
+//         // Backend response with user data
+//         final userModelData = response.data as Map<String, dynamic>;
+//         final userModel = UserModel.fromJson(userModelData);
+
+//         // Step 5: Save user data and token locally
+//         PrefHelper.instance.setSecuredString('token', userModel.token); // Assuming token comes from backend
+//         PrefHelper.instance.setUser(userModel);
+        
+//         return Right(userModel);
+//       } else {
+//         return Left(ServerFailure(
+//             message: ResponseCodeUtils.getCode(response.code ?? 'Unknown error'),
+//             code: ResponseCodeUtils.getCode(response.code ?? ''),
+//             errors: ResponseCodeUtils.getErrorMessage(
+//                 response.errors, response.message ?? '')));
+//       }
+//     } catch (e) {
+//       return Left(ServerFailure(message: e.toString()));
+//     }
+//   }
+
+
+
+
 }

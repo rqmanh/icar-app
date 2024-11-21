@@ -1,9 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:icar/core/di/injection.dart';
+import 'package:icar/features/auth/presentation/cubit/otp_cubit.dart';
 import 'package:icar/features/auth/presentation/cubit/sign_in_cubit.dart';
-import 'package:icar/features/auth/presentation/screens/login_screen.dart';
+import 'package:icar/features/auth/presentation/screens/otp_screen.dart';
 import 'package:icar/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:icar/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:icar/features/dashboard/presentation/cubit/dashboard_cubit.dart';
+import 'package:icar/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/language_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/onboarding_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/splash_screen.dart';
@@ -37,6 +41,13 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const OnboardingScreen(),
     ),
     GoRoute(
+      path: AppRoutes.dashboardScreen,
+      builder: (context, state) => BlocProvider(
+        create: (context) => DashboardCubit(),
+        child: const DashboardScreen(),
+      ),
+    ),
+    GoRoute(
       path: AppRoutes.signinScreen,
       builder: (context, state) => BlocProvider(
         create: (context) => SignInCubit(),
@@ -49,6 +60,17 @@ final GoRouter router = GoRouter(
         create: (context) => SignInCubit(),
         child: const SignupScreen(),
       ),
+    ),
+    GoRoute(
+      path: AppRoutes.otpScreen,
+      builder: (context, state) {
+        final phoneNumber = state.pathParameters['phoneNumber'] ?? '';
+
+        return BlocProvider(
+          create: (context) => getIt<OtpCubit>(),
+          child: OtpScreen(phoneNumber: phoneNumber),
+        );
+      },
     ),
   ],
 );

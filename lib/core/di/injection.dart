@@ -13,51 +13,52 @@ import 'package:icar/features/auth/domain/repositories/auth_repository.dart';
 import 'package:icar/features/auth/domain/usecases/send_otp_usecase.dart';
 import 'package:icar/features/auth/domain/usecases/sign_out_usecase.dart';
 import 'package:icar/features/auth/domain/usecases/verify_otp_usecase.dart';
+import 'package:icar/features/auth/presentation/cubit/otp_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final sl = GetIt.instance;
+final getIt = GetIt.instance;
 
 Future<void> configureDependencies() async {
   // Register Dio
-  sl.registerLazySingleton<Dio>(
+  getIt.registerLazySingleton<Dio>(
       () => Dio(BaseOptions(baseUrl: ApiConstants.baseUrl)));
 // Register ApiHelper
-  sl.registerLazySingleton<ApiHelper>(() => ApiHelper());
+  getIt.registerLazySingleton<ApiHelper>(() => ApiHelper());
   // Register SharedPreferences
   final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerSingleton<SharedPreferences>(sharedPreferences);
+  getIt.registerSingleton<SharedPreferences>(sharedPreferences);
 
   // Register FlutterSecureStorage
-  sl.registerLazySingleton<FlutterSecureStorage>(
+  getIt.registerLazySingleton<FlutterSecureStorage>(
       () => const FlutterSecureStorage());
 
   // Register ApiService
-  sl.registerLazySingleton<ApiService>(() => ApiService());
+  getIt.registerLazySingleton<ApiService>(() => ApiService());
   // getIt.registerLazySingleton<NetworkInfo>(() => NetworkInfo());
-  sl.registerLazySingleton<NetworkInfoPlus>(() => NetworkInfoPlus());
+  getIt.registerLazySingleton<NetworkInfoPlus>(() => NetworkInfoPlus());
 
   // Register AuthLocalDataSource
-  sl.registerLazySingleton<AuthLocalDataSource>(() => AuthLocalDataSource());
+  getIt.registerLazySingleton<AuthLocalDataSource>(() => AuthLocalDataSource());
 
   // Register AuthRemoteDataSource
-  sl.registerLazySingleton<AuthRemoteDataSource>(
-      () => AuthRemoteDataSource(dio: sl<ApiService>()));
+  getIt.registerLazySingleton<AuthRemoteDataSource>(
+      () => AuthRemoteDataSource(dio: getIt<ApiService>()));
 
   // Register AuthRepository
-  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(
-        networkInfo: sl<NetworkInfoPlus>(),
-        networkInfoPlus: sl<NetworkInfoPlus>(),
-        remoteDataSource: sl<AuthRemoteDataSource>(),
-        localDataSource: sl<AuthLocalDataSource>(),
+  getIt.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(
+        networkInfo: getIt<NetworkInfoPlus>(),
+        networkInfoPlus: getIt<NetworkInfoPlus>(),
+        remoteDataSource: getIt<AuthRemoteDataSource>(),
+        localDataSource: getIt<AuthLocalDataSource>(),
       ));
 
   // Register UseCases
-  sl.registerLazySingleton<SendOtpUseCase>(
-      () => SendOtpUseCase(sl<AuthRepository>()));
-  sl.registerLazySingleton<VerifyOtpUseCase>(
-      () => VerifyOtpUseCase(sl<AuthRepository>()));
-  sl.registerLazySingleton<SignOutUseCase>(
-      () => SignOutUseCase(sl<AuthRepository>()));
+  getIt.registerLazySingleton<SendOtpUseCase>(
+      () => SendOtpUseCase(getIt<AuthRepository>()));
+  getIt.registerLazySingleton<VerifyOtpUseCase>(
+      () => VerifyOtpUseCase(getIt<AuthRepository>()));
+  getIt.registerLazySingleton<SignOutUseCase>(
+      () => SignOutUseCase(getIt<AuthRepository>()));
 
 
 
@@ -67,5 +68,12 @@ Future<void> configureDependencies() async {
 
 
 
-  await sl.allReady();
+
+  // Register Cubit as a Factory to create a new instance when needed
+  getIt.registerFactory(() => OtpCubit(
+    sendOtpUseCase: getIt<SendOtpUseCase>(),
+    verifyOtpUseCase: getIt<VerifyOtpUseCase>(),
+  ));
+
+  await getIt.allReady();
 }

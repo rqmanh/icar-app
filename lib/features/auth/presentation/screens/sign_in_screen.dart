@@ -47,16 +47,16 @@ class SignInScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(height: 40.h),
-                         FormHeaderWidget(
-                          image: AppImages.logo,
-                          title:AppKeys.loginTitle,
-                          subTitle:AppKeys.loginSubTitle
-                        ),
+                        FormHeaderWidget(
+                            image: AppImages.logo,
+                            title: AppKeys.loginTitle,
+                            subTitle: AppKeys.loginSubTitle),
                         const LoginFormWidget(),
                         20.verticalSpace,
-                        
                         const SignInDivider(),
-                        SocialFooter(onPressed: ()=>context.push(AppRoutes.signupScreen),)
+                        SocialFooter(
+                          onPressed: () => context.push(AppRoutes.signupScreen),
+                        )
                       ],
                     ),
                   ),
@@ -80,24 +80,18 @@ class SignInDivider extends StatelessWidget {
         const Expanded(
           child: Divider(
             color: CColors.dividerColor, // Customize the color if needed
-        
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text(
-     AppKeys.signUpWith,
-            style: CTextStyles.font14GrayRegular
-          ),
+          child: Text(AppKeys.signUpWith, style: CTextStyles.font14GrayRegular),
         ),
         const Expanded(
           child: Divider(
             color: CColors.dividerColor, // Customize the color if needed
-            
           ),
         ),
       ],
     );
   }
 }
-

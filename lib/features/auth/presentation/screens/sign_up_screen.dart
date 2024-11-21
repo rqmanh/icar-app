@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_images.dart';
 import 'package:icar/config/app_keys.dart';
-import 'package:icar/core/widgets/custom_asset_image_widget.dart';
 import 'package:icar/core/widgets/form/form_header_widget.dart';
 import 'package:icar/features/auth/presentation/cubit/sign_up_cubit.dart';
-// Import the custom widget if needed
 import 'package:icar/features/auth/presentation/widgets/create_account_form.dart'; // Import the CSC Picker package
 
 class SignupScreen extends StatelessWidget {

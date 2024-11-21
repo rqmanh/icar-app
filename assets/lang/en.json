@@ -8,7 +8,7 @@
 	"login_title": "Login to iCar",
 	"login_subtitle": "Welcome back! Log in to access your account and continue managing and maintaining your car.",
 	  "sign_up_with": "Or sign up with",
-
+	  "signin_terms_of_service":  "By Register in, you agree to the ",
 	  "terms_of_service": "By logging in, you agree to the ",
 	  "terms_of_service_link": "Terms of Service",
 	  "and": " and ",
@@ -17,6 +17,25 @@
 	  "create_account_subtitle": "Start your journey with us to manage your car easily and effectively. Register your account now and enjoy alert services and detailed reports for your car maintenance."
 ,	
 
+"otp_title": "Enter OTP",
+"otp_subtitle": "Please enter the OTP sent to your phone number to verify your account.",
+"resend_otp": "Resend OTP",
+"wait_to_resend": "Wait {seconds} seconds to resend OTP",
+"enter_otp": "Enter the OTP sent to {phone_number}",
+"skip": "Skip",
+
+"start_now": "Start Now",
+
+"onboarding_title_1": "Welcome to iCar App",
+"onboarding_body_1": "Your smart app for managing and maintaining your car in the best way. With iCar, you'll receive personalized alerts and reminders, and comprehensive reports for everything you need to know about your car's maintenance.",
+
+"onboarding_title_2": "Never Miss a Maintenance Appointment",
+"onboarding_body_2": "iCar allows you to set alerts to remind you of important service appointments, such as oil changes, brake checks, and tire replacements, keeping your car always in top condition.",
+
+"onboarding_title_3": "Get Detailed Reports",
+"onboarding_body_3": "You can view your car's maintenance history and updates anytime, thanks to the detailed reports we provide. Track changes easily and stay informed about everything related to your car."
+
+,
 	  "apple": "Apple",
 	"phoneNumber": "Phone Number",
 	"phoneNumberHint":"Enter your phone number",

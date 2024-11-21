@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "156087649442",
+    "project_id": "icar-9a55b",
+    "storage_bucket": "icar-9a55b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156087649442:android:635ccb58dc9503cdb303fb",
+        "android_client_info": {
+          "package_name": "com.rqmanh.icar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156087649442-f7vfhcmg6squo1l81aebddr2ssl6ft5q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rqmanh.icar",
+            "certificate_hash": "3b034b124522f263f6bbda1d052c45a35b132d53"
+          }
+        },
+        {
+          "client_id": "156087649442-jrv8lhpc4l3cgt0ven45dl0nuaeqkkt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPDIC4wvaC0NyW7bWlZ_nkTRlnCO4mz28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156087649442-jrv8lhpc4l3cgt0ven45dl0nuaeqkkt5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156087649442-m1a0nbbualne6kvr83flm9la4p6g9n6f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rqmanh.icarapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

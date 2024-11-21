@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_keys.dart';
+import 'package:icar/config/routre/app_routes.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_sizes.dart';
@@ -118,7 +120,7 @@ class LoginFormWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const TermConditionText(),
+             TermConditionText(termsOfService: AppKeys.signintermsOfService,),
             BlocBuilder<SignInCubit, SignInState>(
               builder: (context, state) {
                 final isLoading =
@@ -131,7 +133,9 @@ class LoginFormWidget extends StatelessWidget {
                     onTap: isLoading
                         ? () {}
                         : () {
-                             print(PrefHelper.instance.getLangCode());
+                            //  print(PrefHelper.instance.getLangCode());
+                            context.push(AppRoutes.otpScreen);
+                            // if (_formKey.currentState!.validate()) {
                             // cubit.validateAndSendOtp;
                           }
                     //
@@ -146,7 +150,8 @@ class LoginFormWidget extends StatelessWidget {
 }
 
 class TermConditionText extends StatelessWidget {
-  const TermConditionText({super.key});
+  final String termsOfService;
+  const TermConditionText({super.key, required this.termsOfService});
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +160,7 @@ class TermConditionText extends StatelessWidget {
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-          text: AppKeys.termsOfService,
+          text: termsOfService,
           style: CTextStyles.font12GrayRegular,
           children: [
             TextSpan(

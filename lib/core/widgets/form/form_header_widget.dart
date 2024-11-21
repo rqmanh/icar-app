@@ -13,7 +13,7 @@ class FormHeaderWidget extends StatelessWidget {
     required this.image,
     required this.title,
     required this.subTitle,
-    this.imageHeight = 0.15,
+    this.imageHeight = 0.11,
     this.textAlign,
     this.crossAxisAlignment = CrossAxisAlignment.start,
   });
@@ -36,19 +36,25 @@ class FormHeaderWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Align(
-            alignment:PrefHelper.instance.getLangCode() == 'ar' ? Alignment.centerLeft : Alignment.centerRight,
+            alignment: PrefHelper.instance.getLangCode() == 'ar'
+                ? Alignment.centerLeft
+                : Alignment.centerRight,
             child: CustomAssetImageWidget(image,
-                color: CColors.primaryColor,
-                height: size.height * imageHeight),
+                color: CColors.primaryColor, height: size.height * imageHeight),
           ),
           //  SvgPicture.asset(image, color: imageColor, height: size.height * imageHeight+200 ),
           SizedBox(height: heightBetween ?? 20),
-          Text(title, style: CTextStyles.font24BlackBold.copyWith(fontSize: 20)),
+          Text(title,
+              style: CTextStyles.font24BlackBold.copyWith(fontSize: 20)),
           SizedBox(height: heightBetween ?? 10),
-          Text(subTitle,
-              // textAlign: TextAlign.center,
-              overflow: TextOverflow.visible,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: CColors.secondaryTextColor,),)
+          Text(
+            subTitle,
+            // textAlign: TextAlign.center,
+            overflow: TextOverflow.visible,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: CColors.secondaryTextColor,
+                ),
+          )
         ],
       ),
     );

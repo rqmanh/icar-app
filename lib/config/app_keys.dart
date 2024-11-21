@@ -22,13 +22,24 @@ class AppKeys {
   static String loginTitle = _tr('login_title');
 static String loginSubTitle = _tr('login_subtitle');
 static String signUpWith = _tr('sign_up_with');
-static String termsOfService = _tr('terms_of_service');
+static String signintermsOfService = _tr('signin_terms_of_service');
+static String signuptermsOfService = _tr('signup_terms_of_service');
 static String termsOfServiceLink = _tr('terms_of_service_link');
 static String and = _tr('and');
 static String privacyPolicy = _tr('privacy_policy');
 static String createAccountTitle = _tr('create_account_title');
 static String createAccountSubTitle = _tr('create_account_subtitle');
 static String apple = _tr('apple');
+
+static String onboardingTitle1 = _tr('onboarding_title_1');
+static String onboardingBody1 = _tr('onboarding_body_1');
+
+static String onboardingTitle2 = _tr('onboarding_title_2');
+static String onboardingBody2 = _tr('onboarding_body_2');
+
+static String onboardingTitle3 = _tr('onboarding_title_3');
+static String onboardingBody3 = _tr('onboarding_body_3');
+
 
 
 
@@ -61,9 +72,11 @@ static String apple = _tr('apple');
   static String invalidAddressFormat = _tr('invalid_address_format');
 
   // OTP & Verification-related keys
-  static String otpTitle = _tr('otpTitle');
-  static String otpSubTitle = _tr('otpSubTitle');
-  static String otpMessage = _tr('otpMessage');
+ static String otpTitle = _tr('otp_title');
+  static String otpSubTitle = _tr('otp_subtitle');
+  static String resendOtp = _tr('resend_otp');
+  static String waitToResend = _tr('wait_to_resend');
+  static String enterOtp = _tr('enter_otp');
   static String emailSent = _tr('emailSent');
   static String congratulations = _tr('congratulations');
   static String emailLinkToResetPassword = _tr('emailLinkToResetPassword');
@@ -106,6 +119,9 @@ static String apple = _tr('apple');
   static String no = _tr('no');
   static String yes = _tr('yes');
   static String next = _tr('next');
+  static String skip = _tr('skip');
+
+  static String startNow = _tr('start_now');
 
   static String resetPassword = _tr('resetPassword');
   static String or = _tr('or');

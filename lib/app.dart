@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
         final display = View.of(context).display;
         final screenSize = display.size / display.devicePixelRatio;
         final scaleWidth = screenSize.width / designSize.width;
-
         return fontSize * scaleWidth;
       },
       child: MaterialApp.router(
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           localizationsDelegates: context.localizationDelegates,
           theme: TAppTheme.lightTheme,
+          darkTheme:  TAppTheme.lightTheme,
           routerConfig: router),
     );
   }
