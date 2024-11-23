@@ -70,6 +70,7 @@ class CustomTextField extends StatelessWidget {
           decoration: InputDecoration(
             suffixText: suffixText,
             hintText: hintText,
+        
             hintStyle: const TextStyle(color: Colors.grey),
             filled: false,
             border: const OutlineInputBorder(
@@ -77,6 +78,7 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             enabledBorder: const OutlineInputBorder(
+              
               borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),

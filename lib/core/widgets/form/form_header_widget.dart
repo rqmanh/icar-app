@@ -1,9 +1,8 @@
-import 'package:icar/app.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
-import 'package:icar/core/utils/shared_pref_helper.dart';
 import 'package:icar/core/widgets/custom_asset_image_widget.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class FormHeaderWidget extends StatelessWidget {
   const FormHeaderWidget({
@@ -36,9 +35,9 @@ class FormHeaderWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Align(
-            alignment: PrefHelper.instance.getLangCode() == 'ar'
-                ? Alignment.centerLeft
-                : Alignment.centerRight,
+            alignment: Localizations.localeOf(context)== const Locale('ar')
+                ? Alignment.topRight
+                : Alignment.topLeft,
             child: CustomAssetImageWidget(image,
                 color: CColors.primaryColor, height: size.height * imageHeight),
           ),

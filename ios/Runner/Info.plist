@@ -16,6 +16,11 @@
 	<string>iCar</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+<string>We need access to your photo library to pick images.</string>
+<key>NSCameraUsageDescription</key>
+<string>We need access to your camera for image picking.</string>
+
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>

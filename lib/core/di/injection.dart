@@ -70,7 +70,7 @@ Future<void> configureDependencies() async {
 
 
   // Register Cubit as a Factory to create a new instance when needed
-  getIt.registerFactory(() => OtpCubit(
+  getIt.registerLazySingleton(() => OtpCubit(
     sendOtpUseCase: getIt<SendOtpUseCase>(),
     verifyOtpUseCase: getIt<VerifyOtpUseCase>(),
   ));

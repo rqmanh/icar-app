@@ -12,8 +12,8 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
-configureDependencies();
+  );
+  configureDependencies();
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (context) => LanguageCubit()),

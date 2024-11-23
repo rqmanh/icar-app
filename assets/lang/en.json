@@ -3,9 +3,24 @@
 	"login": "Login",
 	"signup": "Sign Up",
 
+	"emailHint": "Enter your Email",
+	"fullNameHint": "Enter your Full Name",
 
+"home":"Home",
+"services":"Services",
+"reports":"Reports",
+"profile":"Profile",
 	
+"cars": "My Cars",
+"viewAll": "View All",
+"maintenance": "Maintenance",
+"upcomingMaintenance": "Upcoming Maintenance",
+"changeOil": "Change Oil",
+"notification": "Notification",
+"userGreeting": "Hello {name} 👋",
 	"login_title": "Login to iCar",
+ "pressBackAgainToExit": "Press back again to exit",
+
 	"login_subtitle": "Welcome back! Log in to access your account and continue managing and maintaining your car.",
 	  "sign_up_with": "Or sign up with",
 	  "signin_terms_of_service":  "By Register in, you agree to the ",
@@ -120,7 +135,6 @@
 	"emailVerificationSubTitle": "We just sent an email verification link to your email. Please check your email and click the link to verify your email address. \n\n If you're not redirected automatically after verifying, click the continue button.",
 	"resendEmailLink": "Resend email link",
 	"backToLogin": "Back to login",
-	"profile": "Profile",
 	"editProfile": "Edit Profile",
 	"logoutDialogHeading": "Logout",
 	"profileHeading": "Mohammed Alsayani",

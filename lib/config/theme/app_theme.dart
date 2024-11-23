@@ -11,6 +11,7 @@ class TAppTheme {
     primaryColor: CColors.primaryColor,
     splashColor: CColors.primaryColor,
     brightness: Brightness.dark,
+    scaffoldBackgroundColor: CColors.scafBackgroundColor,
 
     textTheme: TTextTheme.lightTextTheme,
     // highlightColor: CColors.transparent,
@@ -26,6 +27,9 @@ class TAppTheme {
       cursorColor: CColors.primaryColor,
       selectionHandleColor: CColors.primaryColor.withOpacity(0.2),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: CColors.backgroundColor
+    )
     // radioTheme: RadioThemeData(
 
     // splashRadius: 0,  // Disable splash effect

@@ -32,147 +32,176 @@ class CreateAccountForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Custom TextField for Full Name
-          CustomTextField(
-              label: AppKeys.fullName,
-              hintText: AppKeys.fullName,
-              focusNode: FocusNode(),
-              validator: (v) => ValidationHelper.nameValidator(v),
-              controller: nameController),
-          10.verticalSpace,
-          // Country and City Selection
-          BlocBuilder<SignupCubit, SignupState>(
-            builder: (context, state) {
-              var countries =
-                  state is SignupCountriesLoaded ? state.countries : <String>[];
-              var cities =
-                  state is SignupCitiesLoaded ? state.cities : <String>[];
+          Container(
+            height: 540,
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25), color: CColors.white,
+              // boxShadow:const [
+              //   BoxShadow(color: CColors.black),
+              //   BoxShadow(color: CColors.black),
+              //    ]
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomTextField(
+                    label: AppKeys.fullName,
+                    hintText: AppKeys.fullNameHint,
+                    focusNode: FocusNode(),
+                    validator: (v) => ValidationHelper.nameValidator(v),
+                    controller: nameController),
+                10.verticalSpace,
+                // Country and City Selection
+                BlocBuilder<SignupCubit, SignupState>(
+                  builder: (context, state) {
+                    var countries = state is SignupCountriesLoaded
+                        ? state.countries
+                        : <String>[];
+                    var cities =
+                        state is SignupCitiesLoaded ? state.cities : <String>[];
 
-              return Row(
-                children: [
-                  // Country Dropdown
-                  Expanded(
-                    child: CustomDropdownField(
-                      label: AppKeys.country,
-                      hintText: AppKeys.select,
-                      options: countries,
-                      controller: countryController,
-                      onSelected: (value) {
-                        signupCubit.changeCountry(value);
-                      },
+                    return Row(
+                      children: [
+                        // Country Dropdown
+                        Expanded(
+                          child: CustomDropdownField(
+                            label: AppKeys.country,
+                            hintText: AppKeys.select,
+                            options: countries,
+                            controller: countryController,
+                            onSelected: (value) {
+                              signupCubit.changeCountry(value);
+                            },
+                          ),
+                        ),
+                        horizontalSpace(10),
+                        // City Dropdown
+                        Expanded(
+                          child: CustomDropdownField(
+                            label: AppKeys.city,
+                            hintText: AppKeys.select,
+                            options: cities,
+                            controller: cityController,
+                            enabled: countries.isNotEmpty,
+                            onSelected: (value) {
+                              signupCubit.changeCity(value);
+                            },
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                10.verticalSpace,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    AppKeys.phoneNumber,
+                    style: CTextStyles.font14DarkMedium,
+                  ),
+                ),
+                // Phone Number Field
+                PhoneFormField(
+                  autovalidateMode: AutovalidateMode.onUnfocus,
+                  controller: signupCubit.phoneNumberController,
+                  validator: (phone) {
+                    if (phone == null || phone.nsn.isEmpty) {
+                      return AppKeys.phoneRequired;
+                    }
+                    if (phone.nsn.length < 9) {
+                      return AppKeys.phoneTooShort;
+                    }
+                    if (phone.nsn.length > 15) {
+                      return AppKeys.phoneTooLong;
+                    }
+                    if (phone.nsn.startsWith('0')) {
+                      return AppKeys.phoneNoStart0;
+                    }
+                    if (phone.nsn.length == 9 && !phone.nsn.startsWith('5')) {
+                      return AppKeys.phoneShouldStart5;
+                    }
+                    if (!phone.isValid()) {
+                      return AppKeys.phoneInvalid;
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    hintStyle: CTextStyles.font13GrayRegular,
+                    labelStyle: CTextStyles.font13GrayRegular,
+                    hintText: '000000000',
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: CColors.borderColor, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    errorBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
                   ),
-                  horizontalSpace(10),
-                  // City Dropdown
-                  Expanded(
-                    child: CustomDropdownField(
-                      label: AppKeys.city,
-                      hintText: AppKeys.select,
-                      options: cities,
-                      controller: cityController,
-                      enabled: countries.isNotEmpty,
-                      onSelected: (value) {
-                        signupCubit.changeCity(value);
-                      },
-                    ),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                    LengthLimitingTextInputFormatter(9),
+                  ],
+                ),
+                10.verticalSpace,
+                CustomTextField(
+                    label: AppKeys.email,
+                    hintText: AppKeys.emailHint,
+                    focusNode: FocusNode(),
+                    validator: (v) => ValidationHelper.nameValidator(v),
+                    controller: nameController),
+                10.verticalSpace,
+                // Gender Selection
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    AppKeys.gender,
+                    style: CTextStyles.font14DarkMedium,
                   ),
-                ],
-              );
-            },
-          ),
-          10.verticalSpace,
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              AppKeys.phoneNumber,
-              style: CTextStyles.font14DarkMedium,
-            ),
-          ),
-          // Phone Number Field
-          PhoneFormField(
-            autovalidateMode:AutovalidateMode.onUnfocus ,
-            controller: signupCubit.phoneNumberController,
-            validator: (phone) {
-              if (phone == null || phone.nsn.isEmpty) {
-                return AppKeys.phoneRequired;
-              }
-              if (phone.nsn.length < 9) {
-                return AppKeys.phoneTooShort;
-              }
-              if (phone.nsn.length > 15) {
-                return AppKeys.phoneTooLong;
-              }
-              if (phone.nsn.startsWith('0')) {
-                return AppKeys.phoneNoStart0;
-              }
-              if (phone.nsn.length == 9 && !phone.nsn.startsWith('5')) {
-                return AppKeys.phoneShouldStart5;
-              }
-              if (!phone.isValid()) {
-                return AppKeys.phoneInvalid;
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-              hintStyle: CTextStyles.font13GrayRegular,
-              labelStyle: CTextStyles.font13GrayRegular,
-              hintText: '000000000',
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: CColors.lightGray, width: 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              errorBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red, width: 2.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-            ),
-            inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-              LengthLimitingTextInputFormatter(9),
-            ],
-          ),
-          10.verticalSpace,
-          // Gender Selection
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              AppKeys.gender,
-              style: CTextStyles.font14DarkMedium,
-            ),
-          ),
+                ),
 
-          BlocBuilder<SignupCubit, SignupState>(
-            builder: (context, state) {
-              return Column(
-                children: [
-                  Row(
-                    children: [
-                      _buildGenderOption(
-                        context: context,
-                        title: AppKeys.male,
-                        value: 'Male',
-                        gender:
-                            state is SignupGenderChanged ? state.gender : '',
-                        isSelected: state is SignupGenderChanged &&
-                            state.gender == 'Male',
-                      ),
-                      horizontalSpace(10),
-                      _buildGenderOption(
-                        context: context,
-                        title: AppKeys.female,
-                        value: 'Female',
-                        gender:
-                            state is SignupGenderChanged ? state.gender : '',
-                        isSelected: state is SignupGenderChanged &&
-                            state.gender == 'Female',
-                      ),
-                    ],
-                  ),
-                ],
-              );
-            },
+                BlocBuilder<SignupCubit, SignupState>(
+                  builder: (context, state) {
+                    return Column(
+                      children: [
+                        Row(
+                          children: [
+                            _buildGenderOption(
+                              context: context,
+                              title: AppKeys.male,
+                              value: 'Male',
+                              gender: state is SignupGenderChanged
+                                  ? state.gender
+                                  : '',
+                              isSelected: state is SignupGenderChanged &&
+                                  state.gender == 'Male',
+                            ),
+                            horizontalSpace(10),
+                            _buildGenderOption(
+                              context: context,
+                              title: AppKeys.female,
+                              value: 'Female',
+                              gender: state is SignupGenderChanged
+                                  ? state.gender
+                                  : '',
+                              isSelected: state is SignupGenderChanged &&
+                                  state.gender == 'Female',
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 20),
-             TermConditionText(termsOfService: AppKeys.signuptermsOfService,),
+          // const SizedBox(height: 20),
+          TermConditionText(
+            termsOfService: AppKeys.signuptermsOfService,
+          ),
           // Sign-Up Button
           AppGesterDedector(
             onTap: () {
@@ -180,14 +209,14 @@ class CreateAccountForm extends StatelessWidget {
             },
             text: AppKeys.signup,
           ),
-           Align(
+          Align(
             alignment: Alignment.center,
-             child: ClickableRichTextWidget(
+            child: ClickableRichTextWidget(
               text1: AppKeys.alreadyHaveAnAccount,
               text2: AppKeys.login,
-              onPressed: ()=>context.push(AppRoutes.signinScreen),
-                       ),
-           ),
+              onPressed: () => context.push(AppRoutes.signinScreen),
+            ),
+          ),
         ],
       ),
     );
@@ -210,7 +239,7 @@ class CreateAccountForm extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
           margin: EdgeInsets.zero,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: isSelected ? CColors.primaryColor : CColors.borderColor,
             ),

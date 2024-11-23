@@ -1,17 +1,26 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icar/config/app_colors.dart';
+import 'package:icar/config/theme/app_text_styles.dart';
+import 'package:icar/config/theme/font_weight_helper.dart';
 import 'package:icar/core/utils/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
 class TAppBarTheme {
   TAppBarTheme._();
 
-  static const lightAppBarTheme = AppBarTheme(
+  static var lightAppBarTheme = AppBarTheme(
     elevation: 0,
     centerTitle: true,
-    backgroundColor: Colors.transparent,
-    iconTheme: IconThemeData(color: CColors.iconColorLight, size: 18.0),
+    backgroundColor: Colors.white,
+    titleTextStyle: TextStyle(
+    fontFamily: AppConstants.fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeightHelper.bold,
+    color: Colors.black,
+    ),
+    iconTheme: const IconThemeData(color: CColors.iconColorLight, size: 18.0),
     actionsIconTheme:
-        IconThemeData(color: CColors.iconColorLight, size: 18.0),
+        const IconThemeData(color: CColors.iconColorLight, size: 18.0),
   );
   static const darkAppBarTheme = AppBarTheme(
     elevation: 0,

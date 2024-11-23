@@ -331,19 +331,19 @@ class CustomDropdownField extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: CColors.borderColor, width: 2.0),
+              borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: CColors.primaryColor, width: 2.0),
+              borderSide: BorderSide(color: CColors.primaryColor, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red, width: 2.0),
+              borderSide: BorderSide(color: Colors.red, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red, width: 2.0),
+              borderSide: BorderSide(color: Colors.red, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
             suffixIcon: const Icon(Iconsax.arrow_down_1, color: Colors.grey),

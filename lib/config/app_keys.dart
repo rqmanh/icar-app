@@ -10,6 +10,8 @@ class AppKeys {
   static String password = _tr('password');
   static String confirmPassword = _tr('confirmPassword');
   static String fullName = _tr('fullName');
+  static String fullNameHint = _tr('fullNameHint');
+  static String emailHint = _tr('emailHint');
   static String addPhotoOrAvatar = _tr('addPhotoOrAvatar');
   static String getStarted = _tr('getStarted');
   static String forgetPassword = _tr('forgetPassword');
@@ -40,6 +42,19 @@ static String onboardingBody2 = _tr('onboarding_body_2');
 static String onboardingTitle3 = _tr('onboarding_title_3');
 static String onboardingBody3 = _tr('onboarding_body_3');
 
+
+static String home = _tr('home');
+static String services = _tr('services');
+static String reports = _tr('reports');
+static String profile = _tr('profile');
+  static String cars = _tr('cars');
+  static String viewAll = _tr('viewAll');
+  static String maintenance = _tr('maintenance');
+  static String upcomingMaintenance = _tr('upcomingMaintenance');
+  static String changeOil = _tr('changeOil');
+  static String notification = _tr('notification');
+  static String userGreeting = _tr('userGreeting');
+  static String pressBackAgainToExit = _tr('pressBackAgainToExit');
 
 
 
@@ -86,7 +101,7 @@ static String onboardingBody3 = _tr('onboarding_body_3');
   static String resendEmailLink = _tr('resendEmailLink');
 
   // Profile-related keys
-  static String profile = _tr('profile');
+ 
   static String editProfile = _tr('editProfile');
   static String profileHeading = _tr('profileHeading');
   static String profileSubHeading = _tr('profileSubHeading');
@@ -174,4 +189,8 @@ static String onboardingBody3 = _tr('onboarding_body_3');
 
   // Helper method to fetch translation for keys
   static String _tr(String key) => key.tr();
+
+//   String _tr(String key) {
+//   return AppLocalizations.of(context)?.translate(key) ?? key;
+// }
 }

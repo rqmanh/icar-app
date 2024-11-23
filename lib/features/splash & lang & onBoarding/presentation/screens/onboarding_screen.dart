@@ -6,7 +6,7 @@ import 'package:icar/config/app_images.dart';
 import 'package:icar/config/app_keys.dart';
 import 'package:icar/config/routre/app_routes.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
-
+import 'package:icar/core/utils/shared_pref_helper.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -19,26 +19,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 
- final List<OnboardingPage> _pages = [
-  OnboardingPage(
-    title: AppKeys.onboardingTitle1,
-    body: AppKeys.onboardingBody1,
-    image: AppImages.onboardingOne,
-    backgroundColor: const Color(0xFFFFE0CC), // Orange
-  ),
-  OnboardingPage(
-    title: AppKeys.onboardingTitle2,
-    body: AppKeys.onboardingBody2,
-    image: AppImages.onboardingTwo,
-    backgroundColor: const Color(0xFFCCE7FF), // Blue
-  ),
-  OnboardingPage(
-    title: AppKeys.onboardingTitle3,
-    body: AppKeys.onboardingBody3,
+  final List<OnboardingPage> _pages = [
+    OnboardingPage(
+      title: AppKeys.onboardingTitle1,
+      body: AppKeys.onboardingBody1,
+      image: AppImages.onboardingOne,
+      backgroundColor: const Color(0xFFFFE0CC), // Orange
+    ),
+    OnboardingPage(
+      title: AppKeys.onboardingTitle2,
+      body: AppKeys.onboardingBody2,
+      image: AppImages.onboardingTwo,
+      backgroundColor: const Color(0xFFCCE7FF), // Blue
+    ),
+    OnboardingPage(
+      title: AppKeys.onboardingTitle3,
+      body: AppKeys.onboardingBody3,
       image: AppImages.onboardingThree,
-    backgroundColor: const Color(0xFFFFCCCF), // Pink
-  ),
-];
+      backgroundColor: const Color(0xFFFFCCCF), // Pink
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -105,17 +105,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 if (_currentIndex < _pages.length - 1)
                   TextButton(
                     onPressed: () {
-                              context.go(AppRoutes.signinScreen);
+                      context.go(AppRoutes.signinScreen);
+                      PrefHelper.instance.setBool('seenOnboarding', true);
                     },
-                    child:  Text(
-                   AppKeys.skip,
-                      style: CTextStyles.font15DarkMedium.copyWith(
-                        color: CColors.secondaryTextColor
-                      )
-                    ),
+                    child: Text(AppKeys.skip,
+                        style: CTextStyles.font15DarkMedium
+                            .copyWith(color: CColors.secondaryTextColor)),
                   ),
                 if (_currentIndex == _pages.length - 1)
-                  const SizedBox(width: 64), // Empty space for alignment
+                  const SizedBox(width: 64), 
                 // Page indicator dots
                 Row(
                   children: List.generate(
@@ -143,15 +141,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         curve: Curves.easeInOut,
                       );
                     } else {
-                     context.go(AppRoutes.signinScreen);
+                      context.go(AppRoutes.signinScreen);
+                      PrefHelper.instance.setBool('seenOnboarding', true);
                     }
                   },
                   child: Text(
-                _currentIndex == _pages.length - 1 ? AppKeys.startNow : AppKeys.next,
-                    style: CTextStyles.font16WhiteSemiBold.copyWith(
-                      color: CColors.primaryColor
-                    )
-                  ),
+                      _currentIndex == _pages.length - 1
+                          ? AppKeys.startNow
+                          : AppKeys.next,
+                      style: CTextStyles.font16WhiteSemiBold
+                          .copyWith(color: CColors.primaryColor)),
                 ),
               ],
             ),

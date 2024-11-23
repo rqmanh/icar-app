@@ -1,6 +1,6 @@
 
 class AppConstants {
-  static String fontFamily = 'IBM';
+  static String fontFamily = 'ping';
   static const String appName = 'iCar App';
   static const String appVersion = '1.0.0';
   static const String appUrl = '';

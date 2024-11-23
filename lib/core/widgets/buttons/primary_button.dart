@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icar/config/app_colors.dart';
@@ -31,7 +30,6 @@ class TPrimaryButton extends StatelessWidget {
     return SizedBox(
       width: isFullWidth ? double.infinity : width.w,
       child: ElevatedButton(
-        
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all<Color>(buttonColor),
           foregroundColor: WidgetStateProperty.all<Color>(textColor),
@@ -49,72 +47,68 @@ class TPrimaryButton extends StatelessWidget {
 }
 
 class AppGesterDedector extends StatelessWidget {
-
-
   const AppGesterDedector({
     super.key,
     required this.onTap,
     required this.text,
     this.color,
-    this.btnColor= CColors.primaryColor,
+    this.btnColor = CColors.primaryColor,
     this.isLoading = false,
-    this.height=55,
+    this.height = 55,
     this.width,
-     this.fontSize,
-    this.textStyle,
+    this.fontSize,
 
   });
   final void Function() onTap;
   final String text;
-  final TextStyle ?textStyle;
+
 
   final Color? color;
-  final Color? btnColor ;
+  final Color? btnColor;
   final bool isLoading;
-  final double ?fontSize;
-  final double ?height;
-  final double ?width;
+  final double? fontSize;
+  final double? height;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child:
-      //  ScaleDownTransitionWidget(
-      //   minSize: 0.9,
-        // child: 
-        Container(
-          height: height,
-          width:width?? double.infinity,
-          margin: const EdgeInsets.symmetric(horizontal: 0),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 4,
-                  color: Colors.black12.withOpacity(.2),
-                  offset: const Offset(2, 2))
-            ],
-            borderRadius: BorderRadius.circular(12),
-            // borderRadius: BorderRadius.circular(30).copyWith(
-            //     topRight: Radius.circular(0), bottomLeft: Radius.circular(0)),
-            // gradient: LinearGradient(colors: [
-            //   Colors.purple.shade200,
-            //   Colors.purple.shade900,
-            // ],
-            // ),
-            color: btnColor,
-          ),
-          child:
-          isLoading ? const ButtonLoadingWidget() :
-           Text(
-            text.toUpperCase(),
-            style:textStyle?.copyWith(fontSize: fontSize) ?? Theme.of(context)
-                .textTheme
-                .labelLarge
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold, fontSize:fontSize)
-          ),
+          //  ScaleDownTransitionWidget(
+          //   minSize: 0.9,
+          // child:
+          Container(
+        height: height,
+        width: width ?? double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 4,
+                color: Colors.black12.withOpacity(.2),
+                offset: const Offset(2, 2))
+          ],
+          borderRadius: BorderRadius.circular(12),
+          // borderRadius: BorderRadius.circular(30).copyWith(
+          //     topRight: Radius.circular(0), bottomLeft: Radius.circular(0)),
+          // gradient: LinearGradient(colors: [
+          //   Colors.purple.shade200,
+          //   Colors.purple.shade900,
+          // ],
+          // ),
+          color: btnColor,
         ),
+        child: isLoading
+            ? const ButtonLoadingWidget()
+            : Text(text.toUpperCase(),
+            style: CTextStyles.font16WhiteMedium),
+                // style: textStyle?.copyWith(fontSize: fontSize) ??
+                //     Theme.of(context).textTheme.labelLarge?.copyWith(
+                //         color: Colors.white,
+                //         fontWeight: FontWeight.bold,
+                //         fontSize: fontSize)),
+      ),
       // ),
       // style: ElevatedButton.styleFrom(
       //   backgroundColor: Colors.deepPurple,
@@ -128,72 +122,67 @@ class AppGesterDedector extends StatelessWidget {
 }
 
 class AppGesterDedectorOutline extends StatelessWidget {
-
-
   const AppGesterDedectorOutline({
     super.key,
     required this.onTap,
     required this.text,
     this.color,
-    this.btnColor= CColors.primaryColor,
+    this.btnColor = CColors.primaryColor,
     this.isLoading = false,
-    this.height=44,
+    this.height = 44,
     this.width,
-     this.fontSize,
+    this.fontSize,
     this.textStyle,
-
   });
   final void Function() onTap;
   final String text;
-  final TextStyle ?textStyle;
+  final TextStyle? textStyle;
 
   final Color? color;
-  final Color? btnColor ;
+  final Color? btnColor;
   final bool isLoading;
-  final double ?fontSize;
-  final double ?height;
-  final double ?width;
+  final double? fontSize;
+  final double? height;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child:
-      //  ScaleDownTransitionWidget(
-      //   minSize: 0.9,
-        // child: 
-        Container(
-          height: height,
-          width:width?? double.infinity,
-          margin: const EdgeInsets.symmetric(horizontal: 0),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 4,
-                  color: Colors.black12.withOpacity(.2),
-                  offset: const Offset(2, 2))
-            ],
-            borderRadius: BorderRadius.circular(12),
-            // borderRadius: BorderRadius.circular(30).copyWith(
-            //     topRight: Radius.circular(0), bottomLeft: Radius.circular(0)),
-            // gradient: LinearGradient(colors: [
-            //   Colors.purple.shade200,
-            //   Colors.purple.shade900,
-            // ],
-            // ),
-            color: btnColor,
-          ),
-          child:
-          isLoading ? const ButtonLoadingWidget() :
-           Text(
-            text.toUpperCase(),
-            style:textStyle?.copyWith(fontSize: fontSize) ?? Theme.of(context)
-                .textTheme
-                .labelLarge
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold, fontSize:fontSize)
-          ),
+          //  ScaleDownTransitionWidget(
+          //   minSize: 0.9,
+          // child:
+          Container(
+        height: height,
+        width: width ?? double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 4,
+                color: Colors.black12.withOpacity(.2),
+                offset: const Offset(2, 2))
+          ],
+          borderRadius: BorderRadius.circular(12),
+          // borderRadius: BorderRadius.circular(30).copyWith(
+          //     topRight: Radius.circular(0), bottomLeft: Radius.circular(0)),
+          // gradient: LinearGradient(colors: [
+          //   Colors.purple.shade200,
+          //   Colors.purple.shade900,
+          // ],
+          // ),
+          color: btnColor,
         ),
+        child: isLoading
+            ? const ButtonLoadingWidget()
+            : Text(text.toUpperCase(),
+                style: textStyle?.copyWith(fontSize: fontSize) ??
+                    Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: fontSize)),
+      ),
       // ),
       // style: ElevatedButton.styleFrom(
       //   backgroundColor: Colors.deepPurple,
@@ -217,7 +206,7 @@ class AppButton extends StatelessWidget {
   final TextStyle textStyle;
   final VoidCallback onPressed;
   final bool isLoading;
-  
+
   const AppButton({
     super.key,
     this.borderRadius,
@@ -225,7 +214,8 @@ class AppButton extends StatelessWidget {
     this.horizontalPadding,
     this.verticalPadding,
     this.buttonHeight,
-     this.isLoading = false, this.buttonWidth,
+    this.isLoading = false,
+    this.buttonWidth,
     required this.buttonText,
     required this.textStyle,
     required this.onPressed,
@@ -234,34 +224,34 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      style: ButtonStyle(
-        
-        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-          
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16.0,),
-            side: const BorderSide(color: CColors.borderColor)
-            
+        style: ButtonStyle(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  borderRadius ?? 16.0,
+                ),
+                side: const BorderSide(color: CColors.borderColor)),
+          ),
+          backgroundColor: WidgetStatePropertyAll(
+            backgroundColor ?? CColors.primaryColor,
+          ),
+          padding: WidgetStateProperty.all<EdgeInsets>(
+            EdgeInsets.symmetric(
+              horizontal: horizontalPadding?.w ?? 12.w,
+              vertical: verticalPadding?.h ?? 14.h,
+            ),
+          ),
+          fixedSize: WidgetStateProperty.all(
+            Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
           ),
         ),
-        backgroundColor: WidgetStatePropertyAll(
-          backgroundColor ?? CColors.primaryColor,
-        ),
-        padding: WidgetStateProperty.all<EdgeInsets>(
-          EdgeInsets.symmetric(
-            horizontal: horizontalPadding?.w ?? 12.w,
-            vertical: verticalPadding?.h ?? 14.h,
-          ),
-        ),
-        fixedSize: WidgetStateProperty.all(
-          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
-        ),
-      ),
-      onPressed: onPressed,
-      child:isLoading ? const ButtonLoadingWidget() : Text(
-        buttonText,
-        style: textStyle,
-      ));
+        onPressed: onPressed,
+        child: isLoading
+            ? const ButtonLoadingWidget()
+            : Text(
+                buttonText,
+                style: textStyle,
+              ));
   }
 }
 
@@ -273,7 +263,7 @@ class AppButtonOutline extends StatelessWidget {
   final double? buttonWidth;
   final double? buttonHeight;
   final String buttonText;
-  final TextStyle ?textStyle;
+  final TextStyle? textStyle;
   final VoidCallback onPressed;
   const AppButtonOutline({
     super.key,
@@ -284,7 +274,7 @@ class AppButtonOutline extends StatelessWidget {
     this.buttonHeight,
     this.buttonWidth,
     required this.buttonText,
-     this.textStyle,
+    this.textStyle,
     required this.onPressed,
   });
 
@@ -301,16 +291,11 @@ class AppButtonOutline extends StatelessWidget {
       height: buttonHeight?.h ?? 50.h,
       child: TextButton(
         style: ButtonStyle(
-          
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-            
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
-
             ),
           ),
-        
-          
           padding: WidgetStateProperty.all<EdgeInsets>(
             EdgeInsets.symmetric(
               horizontal: horizontalPadding?.w ?? 12.w,

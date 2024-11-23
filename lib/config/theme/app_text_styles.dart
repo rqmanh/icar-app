@@ -66,6 +66,12 @@ class CTextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.white,
   );
+  static TextStyle font16BlackBold = TextStyle(
+    fontFamily: AppConstants.fontFamily,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: Colors.black,
+  );
 
   static TextStyle font13GrayRegular = TextStyle(
     fontFamily: AppConstants.fontFamily,
@@ -86,6 +92,12 @@ class CTextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.medium,
     color: CColors.primaryColor,
+  );
+  static TextStyle font12BlackMedium = TextStyle(
+    fontFamily: AppConstants.fontFamily,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: CColors.darkTextColor,
   );
 
   static TextStyle font12DarkRegular = TextStyle(
@@ -137,13 +149,19 @@ class CTextStyles {
     fontFamily: AppConstants.fontFamily,
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
-    color: CColors.black,
+    color: CColors.primaryDarkText,
   );
   static TextStyle font16WhiteMedium = TextStyle(
     fontFamily: AppConstants.fontFamily,
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.medium,
     color: Colors.white,
+  );
+  static TextStyle font16BlackMedium = TextStyle(
+    fontFamily: AppConstants.fontFamily,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: Colors.black,
   );
 
   static TextStyle font14PrimarySemiBold = TextStyle(

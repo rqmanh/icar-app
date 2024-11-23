@@ -8,6 +8,8 @@ import 'package:icar/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:icar/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:icar/features/dashboard/presentation/cubit/dashboard_cubit.dart';
 import 'package:icar/features/dashboard/presentation/screens/dashboard_screen.dart';
+import 'package:icar/features/services/presentation/cubit/services_cubit.dart';
+import 'package:icar/features/services/presentation/screens/add_service_details_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/language_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/onboarding_screen.dart';
 import 'package:icar/features/splash%20&%20lang%20&%20onBoarding/presentation/screens/splash_screen.dart';
@@ -22,10 +24,11 @@ class AppRoutes {
   static const String signupDetailsScreen = '/signup-details';
   static const String dashboardScreen = '/dashboard';
   static const String mapScreen = '/map-screen';
+  static const String addServiceDetails = '/add-service_details';
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: AppRoutes.splashScreen,
+  initialLocation: AppRoutes.dashboardScreen,
   routes: [
     // Splash screen route
     GoRoute(
@@ -69,6 +72,15 @@ final GoRouter router = GoRouter(
         return BlocProvider(
           create: (context) => getIt<OtpCubit>(),
           child: OtpScreen(phoneNumber: phoneNumber),
+        );
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.addServiceDetails,
+      builder: (context, state) {
+        return BlocProvider(
+          create: (context) => ServicesCubit()..fetchCars(),
+          child:  const AddServiceDetailsScreen(),
         );
       },
     ),

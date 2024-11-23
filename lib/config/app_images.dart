@@ -8,6 +8,7 @@ class AppImages {
 
 
   static const String loading = 'assets/icons/loading.json';
+  static const String car = 'assets/images/car.png';
 
 
   static const String onboardingOne ='assets/images/onboarding_one.svg';

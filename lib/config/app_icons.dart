@@ -6,6 +6,20 @@ class AppIcons{
 
   static const String appleLogo='assets/icons/apple-logo.svg';
   static const String googleLogo='assets/icons/google-logo.svg';
+  static const String notificationBingIcon='assets/icons/notification_bing_icon.svg';
+  static const String carIcon='assets/icons/car_icon.svg';
+  static const String calenderIcon='assets/icons/calender_icon.svg';
+
+
+  static const String service1 ="assets/icons/service_1.svg";
+  static const String service2 ="assets/icons/service_2.svg";
+  static const String service3 ="assets/icons/service_3.svg";
+  static const String service4 ="assets/icons/service_4.svg";
+  static const String service5 ="assets/icons/service_5.svg";
+  static const String service6 ="assets/icons/service_6.svg";
+  static const String service7 ="assets/icons/service_7.svg";
+  static const String service8 ="assets/icons/service_8.svg";
+
 
 
 

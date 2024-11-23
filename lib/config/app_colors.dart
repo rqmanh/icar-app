@@ -8,8 +8,11 @@ class CColors {
   static const Color hintColorDark = Color(0xFFbebebe); // Dark Hint Grey
   static const Color primaryLight = Color(0xFF4B6AB3);
   static const Color secondaryTextColor = Color(0xFF737373);
+  static const Color darkTextColor = Color(0xFF404040);
+  static const Color primaryDarkText = Color(0xFF171717);
   static const Color primaryDark = Color(0xFF172C62);
   static const Color borderColor = Color(0xFFE5E5E5);
+  static const Color iconBgColor = Color(0xFF5F5F5);
   static const Color hintColorLight = Color(0xFF9B9B9B); // Light Hint Grey
   static const Color textColorDark = Color(0xFFE0E0E0); // White
   static const Color textColorLight = Color(0xFF333333); // Dark Grey
@@ -17,10 +20,10 @@ class CColors {
   static const Color cardColorLight = Color(0xFFE0E0E0);
   static const Color iconColorDark = Color(0xFF141313);
   static const Color dividerColor = Color(0xFFA3A3A3);
-  static const Color inactiveColor = Color(0xFFE7EBEA);
+  static const Color inactiveColor = Color(0xFFA3A3A3);
   static const Color iconColorLight = Color(0xFFE0E0E0);
-  static const Color iconColor = Color(0xFFE0E0E0);
-  static Color shadowColorDark = Colors.white.withOpacity(0.03);
+  static const Color iconColor = Color(0xFF737373);
+  static Color shadowColor = Colors.black.withOpacity(0.03);
   static Color shadowColorLight = Colors.black.withOpacity(0.03);
   static const Color errorColorDark = Color(0xFFdd3135);
   static const Color errorColorLight = Color(0xFFE84D4F);

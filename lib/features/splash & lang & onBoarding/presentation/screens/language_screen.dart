@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Import Bloc
 import 'package:go_router/go_router.dart';
@@ -42,23 +43,37 @@ class LanguageScreen extends StatelessWidget {
               const Spacer(),
               // Heading Text
               Container(
-                height: 300,
+                height: 270,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(25),
                     color: CColors.white),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('قم باختيار لغتك المفضلة',
-                        style: CTextStyles.font14DarkMedium),
-                    Text(
-                      'Choose Your Default Language',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black.withOpacity(0.6),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Text('قم باختيار لغتك المفضلة',
+                                style: CTextStyles.font14DarkMedium),
+                          ),
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Text(
+                              'Choose Your Default Language',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black.withOpacity(0.6),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    verticalSpace(30),
+                    // verticalSpace(10),
 
                     // Language Selection Radio Buttons
                     Padding(
@@ -75,10 +90,11 @@ class LanguageScreen extends StatelessWidget {
                                       .selectLanguage('ar');
                                 },
                                 child: Container(
+                                  height: 80,
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 12),
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
                                       color: state.selectedLanguage == 'ar'
                                           ? CColors.primaryColor
@@ -89,20 +105,22 @@ class LanguageScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
+                                      SvgPicture.asset(AppImages.arFlag),
+                                      const SizedBox(width: 8),
+                                      const Text('اللغة العربية'),
+                                      const Spacer(),
                                       Radio<String>(
                                         value: 'ar',
                                         groupValue: state.selectedLanguage,
                                         onChanged: (String? value) {},
                                         activeColor: CColors.primaryColor,
                                       ),
-                                      const Spacer(),
-                                      const Text('اللغة العربية'),
-                                      const SizedBox(width: 8),
-                                      SvgPicture.asset(AppImages.arFlag),
                                     ],
                                   ),
                                 ),
                               ),
+
+                              10.verticalSpace,
                               // English Language Radio Button
                               GestureDetector(
                                 onTap: () {
@@ -111,10 +129,11 @@ class LanguageScreen extends StatelessWidget {
                                       .selectLanguage('en');
                                 },
                                 child: Container(
+                                  height: 80,
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 10),
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
                                       color: state.selectedLanguage == 'en'
                                           ? CColors.primaryColor
@@ -125,17 +144,17 @@ class LanguageScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
+                                      SvgPicture.asset(AppImages.enFlag),
+                                      const SizedBox(width: 8),
+                                      const Text(
+                                          'اللغة الإنجليزية ( English )'),
+                                      const Spacer(),
                                       Radio<String>(
                                         value: 'en',
                                         groupValue: state.selectedLanguage,
                                         onChanged: (String? value) {},
                                         activeColor: CColors.primaryColor,
                                       ),
-                                      const Spacer(),
-                                      const Text(
-                                          'اللغة الإنجليزية ( English )'),
-                                      const SizedBox(width: 8),
-                                      SvgPicture.asset(AppImages.enFlag),
                                     ],
                                   ),
                                 ),
@@ -153,7 +172,6 @@ class LanguageScreen extends StatelessWidget {
               verticalSpace(100),
               AppGesterDedector(
                   onTap: () {
-                    
                     PrefHelper.instance.setLangCode(
                         context.read<LanguageCubit>().state.selectedLanguage);
                     PrefHelper.instance.setLagChoosed();

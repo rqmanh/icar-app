@@ -134,7 +134,7 @@ class LoginFormWidget extends StatelessWidget {
                         ? () {}
                         : () {
                             //  print(PrefHelper.instance.getLangCode());
-                            context.push(AppRoutes.otpScreen);
+                            context.go(AppRoutes.otpScreen);
                             // if (_formKey.currentState!.validate()) {
                             // cubit.validateAndSendOtp;
                           }
