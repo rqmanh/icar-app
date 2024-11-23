@@ -6,6 +6,8 @@ class AppImages {
   static const String arFlag ='assets/images/ar_flag.svg';
   static const String enFlag ='assets/images/en_flag.svg';
 
+  static const String successImage ='assets/images/success_image.svg';
+
 
   static const String loading = 'assets/icons/loading.json';
   static const String car = 'assets/images/car.png';

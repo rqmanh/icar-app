@@ -58,7 +58,7 @@ class LanguageScreen extends StatelessWidget {
                           Align(
                             alignment: Alignment.topRight,
                             child: Text('قم باختيار لغتك المفضلة',
-                                style: CTextStyles.font14DarkMedium),
+                                style: CTextStyles.font14BlackMedium),
                           ),
                           Align(
                             alignment: Alignment.topRight,

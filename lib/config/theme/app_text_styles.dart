@@ -142,13 +142,6 @@ class CTextStyles {
     fontFamily: AppConstants.fontFamily,
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
-    color: CColors.black,
-  );
-
-  static TextStyle font14DarkMedium = TextStyle(
-    fontFamily: AppConstants.fontFamily,
-    fontSize: 14.sp,
-    fontWeight: FontWeightHelper.medium,
     color: CColors.primaryDarkText,
   );
   static TextStyle font16WhiteMedium = TextStyle(
@@ -186,6 +179,12 @@ class CTextStyles {
   static TextStyle font18DarkBold = TextStyle(
     fontFamily: AppConstants.fontFamily,
     fontSize: 18.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: CColors.black,
+  );
+  static TextStyle font20DarkBold = TextStyle(
+    fontFamily: AppConstants.fontFamily,
+    fontSize: 20.sp,
     fontWeight: FontWeightHelper.bold,
     color: CColors.black,
   );

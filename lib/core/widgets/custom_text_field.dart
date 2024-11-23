@@ -44,7 +44,7 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: CTextStyles.font14DarkMedium),
+        Text(label, style: CTextStyles.font14BlackMedium),
         const SizedBox(height: 10),
         TextFormField(
           keyboardType: isNumber ? TextInputType.number : TextInputType.text,
@@ -66,7 +66,7 @@ class CustomTextField extends StatelessWidget {
           readOnly: readOnly ?? false,
           cursorColor: CColors.primaryColor,
           controller: controller,
-          style: CTextStyles.font14DarkMedium,
+          style: CTextStyles.font14BlackMedium,
           decoration: InputDecoration(
             suffixText: suffixText,
             hintText: hintText,

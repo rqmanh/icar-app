@@ -14,6 +14,7 @@ class CustomDateTextField extends StatelessWidget {
   final String label;
   final String hintText;
   final IconData? icon;
+  final String? iconPath;
   final TextEditingController controller;
   final DateTime initialDate;
   final void Function(DateTime) onDateSelected;
@@ -23,6 +24,7 @@ class CustomDateTextField extends StatelessWidget {
     required this.label,
     required this.hintText,
     this.icon,
+    this.iconPath,
     required this.controller,
     required this.initialDate,
     required this.onDateSelected,
@@ -44,35 +46,36 @@ class CustomDateTextField extends StatelessWidget {
           readOnly: true,
           onTap: () => _showDateBottomSheet(context),
           decoration: InputDecoration(
-              hintText: hintText,
-              hintStyle: const TextStyle(color: Colors.grey),
-              filled: false,
-              border: const OutlineInputBorder(
-                borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: CColors.primaryColor, width: 2.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              errorBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red, width: 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              focusedErrorBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red, width: 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              suffixIcon: icon != null
-                  ? const SvgIconWidget(
-                      path: AppIcons.calenderIcon,
-                      color: CColors.transparent,
-                    )
-                  : null),
+            hintText: hintText,
+            hintStyle: const TextStyle(color: Colors.grey),
+            filled: false,
+            border: const OutlineInputBorder(
+              borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: CColors.borderColor, width: 1.0),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: CColors.primaryColor, width: 2.0),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            errorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red, width: 1.0),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            focusedErrorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red, width: 1.0),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            suffixIcon: iconPath != null
+                ? SvgIconWidget(
+                    path: iconPath ?? '',
+                    color: CColors.transparent,
+                  )
+                : Icon(icon),
+          ),
         ),
       ],
     );

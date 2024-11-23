@@ -5,7 +5,6 @@ import 'package:icar/core/utils/spacing.dart';
 import 'package:icar/core/widgets/buttons/primary_button.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:iconsax/iconsax.dart';
 
@@ -306,7 +305,7 @@ class CustomDropdownField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: CTextStyles.font14DarkMedium,
+          style: CTextStyles.font14BlackMedium,
         ),
         const SizedBox(height: 10),
         TextFormField(
@@ -320,7 +319,7 @@ class CustomDropdownField extends StatelessWidget {
           controller: controller,
           readOnly: true,
           onTap: enabled ? () => _showBottomSheet(context) : null,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.black),
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: const TextStyle(color: Colors.grey),
@@ -355,7 +354,7 @@ class CustomDropdownField extends StatelessWidget {
 
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet(
-      backgroundColor: CColors.cardBackgroundColor,
+      backgroundColor: CColors.backgroundColor,
       context: context,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
@@ -370,7 +369,7 @@ class CustomDropdownField extends StatelessWidget {
                 height: 5,
                 width: 50,
                 decoration: BoxDecoration(
-                    color: CColors.lightGray,
+                    color: CColors.borderColor,
                     borderRadius: BorderRadius.circular(12)),
               ),
               verticalSpace(10),
@@ -388,19 +387,36 @@ class CustomDropdownField extends StatelessWidget {
                     final option = options[index];
                     final isSelected = option == controller?.text;
                     return ListTile(
-                      leading: Icon(
-                        Icons.circle,
-                        color: isSelected ? CColors.primaryColor : Colors.grey,
+                      splashColor: CColors.transparent,
+                      leading: Radio<String>(
+                        value: option,
+                        groupValue: controller?.text,
+                        onChanged: (value) {
+                          if (value != null) {
+                            onSelected(value);
+                            if (controller != null) {
+                              controller!.text = value;
+                            }
+                            Navigator.pop(context);
+                          }
+                        },
+                        activeColor: CColors.primaryColor,
                       ),
                       title: Text(
                         option,
-                        style: CTextStyles.font16WhiteSemiBold,
+                        style: CTextStyles.font16BlackMedium,
                       ),
                       tileColor: isSelected
                           ? CColors.primaryColor.withOpacity(0.1)
                           : Colors.transparent,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
+                        side: BorderSide(
+                          color: isSelected
+                              ? CColors.primaryColor
+                              : CColors.borderColor.withOpacity(0.5),
+                          width: 1.0, // Border width
+                        ),
                       ),
                       onTap: () {
                         onSelected(option);

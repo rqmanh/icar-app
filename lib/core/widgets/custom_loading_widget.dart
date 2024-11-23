@@ -8,8 +8,8 @@ class CustomLottieLoading extends StatelessWidget {
 
   const CustomLottieLoading({
     super.key,
-    this.width = 70.0,
-    this.height = 70.0,
+    this.width = 150.0,
+    this.height = 150.0,
   });
 
   @override

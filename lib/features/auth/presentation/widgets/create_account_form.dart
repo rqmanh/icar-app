@@ -98,7 +98,7 @@ class CreateAccountForm extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     AppKeys.phoneNumber,
-                    style: CTextStyles.font14DarkMedium,
+                    style: CTextStyles.font14BlackMedium,
                   ),
                 ),
                 // Phone Number Field
@@ -158,7 +158,7 @@ class CreateAccountForm extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     AppKeys.gender,
-                    style: CTextStyles.font14DarkMedium,
+                    style: CTextStyles.font14BlackMedium,
                   ),
                 ),
 

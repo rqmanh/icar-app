@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icar/app.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_colors.dart';
+import 'package:icar/config/app_icons.dart';
+import 'package:icar/config/routre/app_routes.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
 import 'package:icar/core/widgets/buttons/primary_button.dart';
 import 'package:icar/core/widgets/custom_date_bottom_sheet.dart';
@@ -26,7 +28,7 @@ class AddServiceDetailsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               border: Border.all(color: CColors.borderColor),
-              color: CColors.backgroundColor,
+              color: CColors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Icon(Icons.arrow_back_ios_new_rounded,
@@ -94,8 +96,7 @@ class AddServiceDetailsScreen extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              // Add car logic goes here
-              // Show a screen or dialog for adding a new car
+              context.push(AppRoutes.userCarsScreen);
             },
             child: Container(
               width: 100,
@@ -128,8 +129,7 @@ class AddServiceDetailsScreen extends StatelessWidget {
             // Display "Add Car" button at the end of the list
             return GestureDetector(
               onTap: () {
-                // Add car logic goes here
-                // Show a screen or dialog for adding a new car
+                 context.push(AppRoutes.userCarsScreen);
               },
               child: Container(
                 width: 100,
@@ -148,7 +148,7 @@ class AddServiceDetailsScreen extends StatelessWidget {
               ),
             );
           }
-
+      
           final car = state.cars[index];
           return GestureDetector(
             onTap: () => context.read<ServicesCubit>().selectCar(car),
@@ -191,7 +191,8 @@ class AddServiceDetailsScreen extends StatelessWidget {
         CustomDateTextField(
           label: 'تاريخ الصيانة القادمة',
           hintText: 'تاريخ الصيانة القادمة',
-          icon: Iconsax.calendar,
+        
+          iconPath: AppIcons.calenderIcon,
           controller: TextEditingController(),
           initialDate: DateTime.now(),
           onDateSelected: (date) {

@@ -19,7 +19,7 @@ class ServicesCubit extends Cubit<ServicesState> {
       // Example data, replace with your API or database logic.
       final cars = [
         Car(
-          id: '1',
+          id: 1,
           brand: 'Toyota',
           type: 'Sedan',
           model: 'Corolla',
@@ -28,7 +28,7 @@ class ServicesCubit extends Cubit<ServicesState> {
           imageUrl: AppImages.car,
         ),
         Car(
-          id: '2',
+          id: 1,
           brand: 'Honda',
           type: 'Sedan',
           model: 'Civic',

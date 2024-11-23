@@ -47,6 +47,8 @@ dependencies:
   rename: ^3.0.2
   shared_preferences: ^2.3.3
   shimmer: ^3.0.0
+  skeletonizer: ^1.4.2
+  timeline_tile: ^2.0.0
   url_launcher: ^6.3.1
   webview_flutter: ^4.10.0
 

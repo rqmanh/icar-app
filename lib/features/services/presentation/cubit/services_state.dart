@@ -1,13 +1,14 @@
 class Car {
-  final String id;
+  final int id;
   final String brand;
   final String type;
   final String model;
   final String licensePlateArabic;
   final String licensePlateEnglish;
   final String imageUrl;
+  final bool isActive;
 
-  Car({
+  Car( {
     required this.id,
     required this.brand,
     required this.type,
@@ -15,6 +16,7 @@ class Car {
     this.licensePlateArabic = '',
     this.licensePlateEnglish = '',
     this.imageUrl = '',
+    this.isActive =false
   });
 }
 class ServicesState {

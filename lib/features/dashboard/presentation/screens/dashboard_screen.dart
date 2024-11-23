@@ -5,13 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icar/config/app_colors.dart';
 import 'package:icar/config/app_icons.dart';
 import 'package:icar/config/app_images.dart';
 import 'package:icar/config/app_keys.dart';
+import 'package:icar/config/routre/app_routes.dart';
 import 'package:icar/config/theme/app_text_styles.dart';
+import 'package:icar/core/widgets/confirmation_sheet.dart';
 import 'package:icar/core/widgets/svg_icon_widget.dart';
 import 'package:icar/features/dashboard/presentation/cubit/dashboard_cubit.dart';
+import 'package:icar/features/reports/presentation/cubit/reports_cubit.dart';
+import 'package:icar/features/reports/presentation/screens/reports_screen.dart';
 import 'package:icar/features/services/presentation/screens/services_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -131,7 +136,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       case 1:
         return const ServiceScreen();
       case 2:
-        return const ReportsScreen();
+        return BlocProvider(
+          create: (context) => ReportsCubit(),
+          child: const ReportsScreen(),
+        );
       case 3:
         return const ProfileScreen();
       default:
@@ -222,7 +230,9 @@ class TopSection extends StatelessWidget {
             children: [
               SvgIconWidget(
                 path: AppIcons.carIcon,
-                onTap: () {},
+                onTap: () {
+                  context.push(AppRoutes.userCarsScreen);
+                },
               ),
               const SizedBox(width: 8),
               SvgIconWidget(
@@ -386,11 +396,11 @@ class MaintenanceCard extends StatelessWidget {
           ),
           title: Text(
             "تغيير الزيت - سيارة هيونداي",
-            style: CTextStyles.font14DarkMedium,
+            style: CTextStyles.font14BlackMedium,
           ),
           subtitle: Text(
             "15-11-2024 · 5:30 PM",
-            style: CTextStyles.font14DarkMedium,
+            style: CTextStyles.font14BlackMedium,
           ),
         ),
       ),
@@ -429,17 +439,6 @@ class AdBanner extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class ReportsScreen extends StatelessWidget {
-  const ReportsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Reports Screen'),
     );
   }
 }

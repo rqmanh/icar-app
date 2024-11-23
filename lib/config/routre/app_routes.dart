@@ -6,6 +6,10 @@ import 'package:icar/features/auth/presentation/cubit/sign_in_cubit.dart';
 import 'package:icar/features/auth/presentation/screens/otp_screen.dart';
 import 'package:icar/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:icar/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:icar/features/cars/presentation/cubit/add_new_car_cubit.dart';
+import 'package:icar/features/cars/presentation/cubit/cars_cubit.dart';
+import 'package:icar/features/cars/presentation/screens/add_new_car_screen.dart';
+import 'package:icar/features/cars/presentation/screens/user_cars_screen.dart';
 import 'package:icar/features/dashboard/presentation/cubit/dashboard_cubit.dart';
 import 'package:icar/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:icar/features/services/presentation/cubit/services_cubit.dart';
@@ -25,6 +29,9 @@ class AppRoutes {
   static const String dashboardScreen = '/dashboard';
   static const String mapScreen = '/map-screen';
   static const String addServiceDetails = '/add-service_details';
+  static const String userCarsScreen ='/user-cars';
+  static const String addNewCarScreen ='/add-new-car';
+  static const String successAddNewCarScreen ='/success-add-new-car';
 }
 
 final GoRouter router = GoRouter(
@@ -82,6 +89,30 @@ final GoRouter router = GoRouter(
           create: (context) => ServicesCubit()..fetchCars(),
           child:  const AddServiceDetailsScreen(),
         );
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.userCarsScreen,
+      builder: (context, state) {
+        return BlocProvider(
+          create: (context) => CarsCubit()..fetchCars(),
+          child:  const UserCarsScreen(),
+        );
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.addNewCarScreen,
+      builder: (context, state) {
+        return BlocProvider(
+          create: (context) => AddNewCarCubit(),
+          child:  const AddNewCarScreen(),
+        );
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.successAddNewCarScreen,
+      builder: (context, state) {
+        return const SuccessAddNewCarScreen();
       },
     ),
   ],
